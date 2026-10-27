@@ -4,6 +4,8 @@
 
 它把界面拆成四层：**空间**（主空间 / 副空间 / 临时空间 / 负空间）、**表面**（停靠带 / 浮岛 / 卡片 / 瓦片 / 凹槽）、**控件**（按钮、输入、导航、反馈、数据、弹层）、**行为**（状态、动效、保存、撤销、确认、渐进披露）。组件实验室是这套系统的视觉手册；三个跨领域示例证明它不是某个行业的皮肤。
 
+[**在线组件实验室**](https://yichen08092025.github.io/argent/examples/lab/) · [**GitHub 仓库**](https://github.com/yichen08092025/argent) · MIT
+
 ![Argent field manual](examples/lab/screenshots/hero-light.png)
 
 [组件实验室](examples/lab/index.html) · [Pulse 数据分析](examples/pulse/index.html) · [Atelier 设置](examples/settings/index.html) · [Relay 引导](examples/onboarding/index.html) · [Motion 领域示例](examples/motion/index.html)
