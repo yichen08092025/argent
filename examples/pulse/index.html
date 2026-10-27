@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-density="comfortable" data-brand="graphite">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse — Argent 示例</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314161a'/%3E%3Cpath d='M18 46 32 15l14 31M24 34h16' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../assets/argent.css">
+<link rel="stylesheet" href="../pages.css">
+</head>
+<body class="app-page">
+<div class="ag-app">
+  <header class="ag-topbar">
+    <a class="page-brand" href="../lab/index.html" aria-label="返回 Argent 手册">
+      <span class="ag-mark"><span data-icon="mark"></span></span>
+      <span><b>PULSE</b><em>Northwind / Analytics</em></span>
+    </a>
+    <nav class="page-topnav" aria-label="主导航">
+      <a href="#">概览</a><a href="#" class="is-active">信号</a><a href="#">报表</a><a href="#">分群</a>
+    </nav>
+    <span class="ag-spacer"></span>
+    <div class="page-search"><span data-icon="search"></span><input placeholder="搜索信号、成员…" aria-label="搜索"><span class="ag-kbd">⌘K</span></div>
+    <button class="ag-btn ag-btn-icon ag-btn-quiet" data-theme-toggle aria-label="切换外观"><span class="theme-sun" data-icon="sun"></span><span class="theme-moon" data-icon="moon"></span></button>
+    <span class="ag-avatar">A</span>
+  </header>
+
+  <div class="ag-shell has-inspector" id="shell">
+    <aside class="ag-rail">
+      <div class="ag-rail-group">
+        <div class="ag-rail-label">Workspace</div>
+        <a class="ag-nav-item" href="#"><span data-icon="chart"></span>概览</a>
+        <a class="ag-nav-item is-active" href="#"><span data-icon="activity"></span>信号<span class="ag-nav-count">12</span></a>
+        <a class="ag-nav-item" href="#"><span data-icon="table"></span>报表</a>
+        <a class="ag-nav-item" href="#"><span data-icon="users"></span>分群</a>
+      </div>
+      <div class="ag-rail-group">
+        <div class="ag-rail-label">Data</div>
+        <a class="ag-nav-item" href="#"><span data-icon="database"></span>数据源</a>
+        <a class="ag-nav-item" href="#"><span data-icon="type"></span>字段词典</a>
+        <a class="ag-nav-item" href="#"><span data-icon="check-circle"></span>数据质量</a>
+      </div>
+      <div class="ag-rail-group">
+        <div class="ag-rail-label">Manage</div>
+        <a class="ag-nav-item" href="#"><span data-icon="users"></span>成员</a>
+        <a class="ag-nav-item" href="../settings/index.html"><span data-icon="settings"></span>设置</a>
+      </div>
+      <div class="ag-rail-footer">
+        <a class="page-back" href="../lab/index.html">ARGENT / FIELD MANUAL ↗</a>
+      </div>
+    </aside>
+
+    <main class="ag-main">
+      <div class="page">
+        <header class="page-head">
+          <div class="page-head-copy">
+            <div class="page-crumb"><span>Northwind</span><span data-icon="chevron-right"></span><span>Analytics</span><span data-icon="chevron-right"></span><span>信号</span></div>
+            <h1 class="page-title">信号</h1>
+            <p class="page-sub"><span id="rangeLabel">过去 30 天</span> · 3 个数据源 · 最后同步 2 分钟前</p>
+          </div>
+          <div class="page-actions">
+            <button class="ag-btn ag-btn-secondary" data-toast="export"><span data-icon="download"></span>导出</button>
+            <button class="ag-btn ag-btn-primary" data-toast="new"><span data-icon="plus"></span>新建信号</button>
+          </div>
+        </header>
+
+        <div class="page-toolbar">
+          <div class="ag-segment" data-segment>
+            <span class="ag-seg-thumb"></span>
+            <button class="ag-seg" data-value="7">7 天</button>
+            <button class="ag-seg is-on" data-value="30">30 天</button>
+            <button class="ag-seg" data-value="90">90 天</button>
+          </div>
+          <button class="ag-chip is-on">所有数据源 <span data-icon="chevron-down"></span></button>
+          <button class="ag-chip">仅生产 <span data-icon="chevron-down"></span></button>
+          <span class="ag-spacer"></span>
+          <span class="ag-save"><span data-icon="check"></span><span>已同步</span></span>
+        </div>
+
+        <div class="stat-grid">
+          <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">事件</span><span class="ag-badge is-brand">30D</span></div><div class="ag-stat-value">128.4k</div><div class="ag-stat-foot"><span class="ag-delta is-up">+18.2%</span><span>较上周期</span></div></div>
+          <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">转化率</span></div><div class="ag-stat-value">4.8%</div><div class="ag-stat-foot"><span class="ag-delta is-up">+0.4</span><span>个百分点</span></div></div>
+          <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">活跃信号</span></div><div class="ag-stat-value">12</div><div class="ag-stat-foot"><span class="ag-delta">3 草稿</span><span>· 1 暂停</span></div></div>
+          <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">查询延迟</span></div><div class="ag-stat-value">182ms</div><div class="ag-stat-foot"><span class="ag-delta is-down">−12ms</span><span>p95</span></div></div>
+        </div>
+
+        <section class="panel chart-panel">
+          <div class="chart-top">
+            <div><span class="ag-kicker">EVENTS / LAST 30 DAYS</span><b>128,420</b></div>
+            <div class="chart-legend"><span><i class="legend-dot"></i>事件</span><span><i class="legend-dot ghost"></i>上一周期</span><div class="ag-segment" data-segment style="margin-left:6px"><span class="ag-seg-thumb"></span><button class="ag-seg is-on" data-value="events">事件</button><button class="ag-seg" data-value="users">用户</button></div></div>
+          </div>
+          <div class="panel-body">
+            <svg class="ag-chart" viewBox="0 0 900 190" role="img" aria-label="事件趋势">
+              <g class="ag-chart-grid"><line x1="0" y1="34" x2="900" y2="34"></line><line x1="0" y1="82" x2="900" y2="82"></line><line x1="0" y1="130" x2="900" y2="130"></line></g>
+              <path d="M0 148 C60 142 96 126 140 132 S218 112 270 118 S346 96 400 102 S480 74 540 86 S620 62 680 70 S770 44 820 52 S880 30 900 34" fill="none" stroke="var(--ag-line-strong)" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.8"></path>
+              <path class="ag-chart-area" d="M0 152 C60 146 96 130 140 136 S218 116 270 122 S346 100 400 106 S480 78 540 90 S620 66 680 74 S770 48 820 56 S880 34 900 38 V190 H0Z"></path>
+              <path class="ag-chart-line" d="M0 152 C60 146 96 130 140 136 S218 116 270 122 S346 100 400 106 S480 78 540 90 S620 66 680 74 S770 48 820 56 S880 34 900 38"></path>
+              <g class="ag-chart-axis"><text x="0" y="184">10/01</text><text x="150" y="184">10/06</text><text x="300" y="184">10/11</text><text x="450" y="184">10/16</text><text x="600" y="184">10/21</text><text x="750" y="184">10/26</text></g>
+            </svg>
+          </div>
+        </section>
+
+        <section class="panel data-table">
+          <div class="panel-head">
+            <div class="panel-head-copy"><div class="panel-title">信号</div><div class="panel-sub">共 12 个 · 按最近更新排序</div></div>
+            <div class="panel-tools"><button class="ag-btn ag-btn-quiet ag-btn-sm"><span data-icon="filter"></span>筛选</button><button class="ag-btn ag-btn-quiet ag-btn-sm"><span data-icon="columns"></span>列</button></div>
+          </div>
+          <div class="filter-row" style="padding:10px 14px;border-bottom:1px solid var(--ag-hairline)">
+            <div class="ag-input-wrap" style="width:230px"><span data-icon="search"></span><input class="ag-input" placeholder="搜索信号…" style="height:30px;font-size:11px"></div>
+            <button class="ag-chip is-on">全部状态</button><button class="ag-chip">仅生产</button>
+            <span class="ag-spacer"></span>
+            <button class="ag-btn ag-btn-quiet ag-btn-sm"><span data-icon="refresh"></span>刷新</button>
+          </div>
+          <div class="ag-table-wrap">
+            <table class="ag-table" data-table>
+              <thead><tr><th class="ag-table-check"><input type="checkbox" data-check-all aria-label="全选"></th><th class="is-sortable">信号 <span class="ag-sort"><span data-icon="arrow-down"></span></span></th><th>负责人</th><th class="is-num">事件</th><th>状态</th><th>更新时间</th><th class="ag-table-actions"></th></tr></thead>
+              <tbody>
+                <tr data-row data-name="北极星留存" data-owner="Ada Lovelace" data-events="12,480" data-status="Live" data-source="events.production"><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="选择北极星留存"></td><td><span class="ag-table-strong">北极星留存</span><br><span class="ag-micro">留存 · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">A</span>Ada</span></td><td class="is-num">12,480</td><td><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Live</span></td><td class="ag-mono">2 分钟前</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                <tr data-row data-name="每周激活" data-owner="Grace Hopper" data-events="8,104" data-status="Live" data-source="events.staging"><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="选择每周激活"></td><td><span class="ag-table-strong">每周激活</span><br><span class="ag-micro">增长 · staging</span></td><td><span class="ag-row"><span class="ag-avatar sm">G</span>Grace</span></td><td class="is-num">8,104</td><td><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Live</span></td><td class="ag-mono">8 分钟前</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                <tr data-row data-name="付费墙漏斗" data-owner="Ken Thompson" data-events="3,912" data-status="Paused" data-source="events.production"><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="选择付费墙漏斗"></td><td><span class="ag-table-strong">付费墙漏斗</span><br><span class="ag-micro">收入 · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">K</span>Ken</span></td><td class="is-num">3,912</td><td><span class="ag-badge is-warning"><span class="ag-dot is-warning"></span>Paused</span></td><td class="ag-mono">1 小时前</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                <tr data-row data-name="企业分群" data-owner="Lin Chen" data-events="1,206" data-status="Draft" data-source="warehouse.accounts"><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="选择企业分群"></td><td><span class="ag-table-strong">企业分群</span><br><span class="ag-micro">账户 · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">L</span>Lin</span></td><td class="is-num">1,206</td><td><span class="ag-badge"><span class="ag-dot"></span>Draft</span></td><td class="ag-mono">3 小时前</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                <tr data-row data-name="试用转化" data-owner="Mira Patel" data-events="902" data-status="Failed" data-source="events.production"><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="选择试用转化"></td><td><span class="ag-table-strong">试用转化</span><br><span class="ag-micro">收入 · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">M</span>Mira</span></td><td class="is-num">902</td><td><span class="ag-badge is-danger"><span class="ag-dot is-danger"></span>Failed</span></td><td class="ag-mono">昨天</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-panel-foot"><span class="ag-help">1–5 / 12</span><div class="ag-pagination"><button class="ag-page-btn" aria-label="上一页"><span data-icon="chevron-left"></span></button><button class="ag-page-btn is-active">1</button><button class="ag-page-btn">2</button><button class="ag-page-btn">3</button><button class="ag-page-btn" aria-label="下一页"><span data-icon="chevron-right"></span></button></div></div>
+        </section>
+      </div>
+    </main>
+
+    <aside class="ag-inspector" id="inspector" aria-label="信号详情">
+      <div class="inspector-title-row"><div><div class="ag-kicker">SIGNAL DETAIL</div><h3 id="insName">北极星留存</h3></div><button class="ag-btn ag-btn-icon ag-btn-quiet" data-inspector-close aria-label="关闭详情"><span data-icon="x"></span></button></div>
+      <div class="inspector-section"><span class="ag-badge is-success" id="insBadge"><span class="ag-dot is-success"></span>Live</span><p class="ag-help" style="margin:0">Northwind 的核心留存信号。每 15 分钟计算一次，结果写入 events.production。</p></div>
+      <div class="inspector-section"><span class="ag-kicker">事件 / 过去 30 天</span><div class="inspector-value" id="insEvents">12,480</div><div class="inspector-chart"><svg class="ag-chart" viewBox="0 0 260 66"><path class="ag-chart-area" d="M0 56 C22 52 36 44 52 47 S80 36 100 40 S130 28 154 32 S188 20 208 25 S244 14 260 17 V66 H0Z"></path><path class="ag-chart-line" d="M0 56 C22 52 36 44 52 47 S80 36 100 40 S130 28 154 32 S188 20 208 25 S244 14 260 17"></path></svg></div></div>
+      <div class="inspector-section"><div class="ag-kv"><dt>负责人</dt><dd id="insOwner">Ada Lovelace</dd><dt>数据源</dt><dd id="insSource">events.production</dd><dt>状态</dt><dd id="insStatus">Live</dd><dt>更新</dt><dd>2 分钟前</dd></div></div>
+      <div class="inspector-section"><div class="inspector-actions"><button class="ag-btn ag-btn-primary ag-btn-sm">打开信号</button><button class="ag-btn ag-btn-secondary ag-btn-sm">编辑</button></div></div>
+    </aside>
+  </div>
+</div>
+
+<div class="ag-bulkbar" data-bulkbar><span class="ag-bulkbar-count"><b data-bulk-count>0</b> 个信号</span><span class="ag-help">批量操作</span><span class="ag-spacer"></span><button class="ag-btn ag-btn-quiet ag-btn-sm" data-bulk-clear>取消</button><button class="ag-btn ag-btn-secondary ag-btn-sm">移动…</button><button class="ag-btn ag-btn-danger-quiet ag-btn-sm">删除</button></div>
+
+<script src="../../assets/argent.js"></script>
+<script src="pulse.js"></script>
+</body>
+</html>

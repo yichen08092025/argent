@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-density="comfortable" data-brand="graphite">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argent — Interface Field Manual</title>
+<meta name="description" content="Argent is a neutral interface system: layout, surfaces, controls, states, and the negative space between them.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314161a'/%3E%3Cpath d='M18 46 32 15l14 31M24 34h16' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../assets/argent.css">
+<link rel="stylesheet" href="lab.css">
+</head>
+<body class="lab" data-spec="off">
+<div class="lab-bg" aria-hidden="true"></div>
+
+<header class="lab-top">
+  <div class="lab-top-inner">
+    <a class="lab-brand" href="#top" aria-label="Argent home">
+      <span class="ag-mark lab-mark"><span data-icon="mark"></span></span>
+      <span class="lab-brand-type"><strong>ARGENT</strong><em>INTERFACE FIELD MANUAL</em></span>
+    </a>
+    <nav class="lab-top-nav" aria-label="Chapters">
+      <a href="#foundations" data-top-link="foundations">Foundations</a>
+      <a href="#layout" data-top-link="layout">Layout</a>
+      <a href="#actions" data-top-link="actions">Actions</a>
+      <a href="#forms" data-top-link="forms">Forms</a>
+      <a href="#navigation" data-top-link="navigation">Navigation</a>
+      <a href="#feedback" data-top-link="feedback">Feedback</a>
+      <a href="#data" data-top-link="data">Data</a>
+      <a href="#overlays" data-top-link="overlays">Overlays</a>
+      <a href="#patterns" data-top-link="patterns">Patterns</a>
+      <a href="#motion" data-top-link="motion">Motion</a>
+      <a href="#examples" data-top-link="examples">Examples</a>
+    </nav>
+    <div class="lab-tools">
+      <button class="lab-search" data-cmdk aria-label="Open command palette">
+        <span data-icon="search"></span><span class="lab-search-label">Search</span><kbd class="ag-kbd">⌘K</kbd>
+      </button>
+      <div class="ag-segment lab-theme" data-segment aria-label="Appearance">
+        <span class="ag-seg-thumb"></span>
+        <button class="ag-seg is-on" data-theme-set="light" aria-label="Soft Silver" title="Soft Silver">
+          <span data-icon="sun" data-theme-icon="sun"></span>
+        </button>
+        <button class="ag-seg" data-theme-set="dark" aria-label="Graphite" title="Graphite">
+          <span data-icon="moon" data-theme-icon="moon"></span>
+        </button>
+      </div>
+      <button class="lab-icon-btn" data-density-toggle aria-label="Toggle density" title="Comfortable / Compact">
+        <span data-icon="rows"></span>
+      </button>
+      <button class="lab-spec-btn" data-spec-toggle aria-pressed="false" title="Show measurements">
+        <span data-icon="ruler"></span><span>Spec</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="lab-shell">
+  <aside class="lab-rail">
+    <div class="lab-rail-head"><span>CONTENTS</span><span class="lab-rail-count">01—11</span></div>
+    <nav class="lab-toc" aria-label="Manual contents">
+      <a href="#foundations" data-toc="foundations"><span class="num">01</span><span>Foundations</span></a>
+      <a href="#layout" data-toc="layout"><span class="num">02</span><span>Layout &amp; sub-space</span></a>
+      <a href="#actions" data-toc="actions"><span class="num">03</span><span>Actions</span></a>
+      <a href="#forms" data-toc="forms"><span class="num">04</span><span>Forms</span></a>
+      <a href="#navigation" data-toc="navigation"><span class="num">05</span><span>Navigation</span></a>
+      <a href="#feedback" data-toc="feedback"><span class="num">06</span><span>Feedback</span></a>
+      <a href="#data" data-toc="data"><span class="num">07</span><span>Data</span></a>
+      <a href="#overlays" data-toc="overlays"><span class="num">08</span><span>Overlays</span></a>
+      <a href="#patterns" data-toc="patterns"><span class="num">09</span><span>Patterns</span></a>
+      <a href="#motion" data-toc="motion"><span class="num">10</span><span>Motion</span></a>
+      <a href="#examples" data-toc="examples"><span class="num">11</span><span>Examples</span></a>
+    </nav>
+    <div class="lab-rail-foot">
+      <div class="lab-progress"><i></i></div>
+      <p>Read top to bottom. Turn on <strong>Spec</strong> to see the measurements behind each plate.</p>
+      <div class="lab-rail-meta"><span>ARGENT / 1.0</span><span>MIT</span></div>
+    </div>
+  </aside>
+
+  <main class="lab-main">
+    <div class="lab-main-inner">
+
+      <section class="lab-hero" id="top" data-section="top">
+        <div class="lab-hero-copy">
+          <div class="lab-eyebrow"><span class="ag-dot is-live"></span><span>ARGENT / A NEUTRAL INTERFACE SYSTEM / 1.0</span></div>
+          <h1 class="lab-hero-title">The quiet<br><em>instrument.</em></h1>
+          <p class="lab-hero-lede">A field manual for software that thinks. Layout, surfaces, controls, states, and the negative space that holds them together.</p>
+          <div class="lab-hero-actions">
+            <a class="ag-btn ag-btn-primary ag-btn-lg" href="#layout">Enter the manual <span data-icon="arrow-right"></span></a>
+            <a class="ag-btn ag-btn-secondary ag-btn-lg" href="#examples">See four examples</a>
+          </div>
+          <div class="lab-hero-meta">
+            <span><b>12</b> foundations</span>
+            <span><b>36</b> components</span>
+            <span><b>9</b> patterns</span>
+            <span><b>4</b> examples</span>
+          </div>
+        </div>
+        <div class="lab-hero-stage" data-spec-label="HERO / STAGE">
+          <div class="lab-hero-grid" aria-hidden="true"></div>
+          <div class="lab-hero-stage-head"><span>SPECIMEN 00</span><span>FLOATING ISLAND</span></div>
+          <div class="lab-island-ghost" aria-hidden="true"></div>
+          <div class="lab-island-specimen" data-spec-label="ISLAND / R20 / 0.5PX / 3 SHADOWS">
+            <div class="lab-island-row">
+              <span class="ag-mark lab-mark sm"><span data-icon="mark"></span></span>
+              <span class="ag-wordmark">ARGENT</span>
+              <span class="lab-island-sep"></span>
+              <span class="lab-island-meta">DRAFT / 03</span>
+              <span class="lab-spacer"></span>
+              <button class="ag-btn ag-btn-primary ag-btn-sm">Publish <span data-icon="arrow-right"></span></button>
+            </div>
+            <div class="lab-island-row">
+              <div class="ag-segment" data-segment>
+                <span class="ag-seg-thumb"></span>
+                <button class="ag-seg is-on" data-value="canvas">Canvas</button>
+                <button class="ag-seg" data-value="table">Table</button>
+                <button class="ag-seg" data-value="code">Code</button>
+              </div>
+              <span class="lab-spacer"></span>
+              <span class="ag-switch"><input type="checkbox" checked><span>Auto-save</span></span>
+            </div>
+            <div class="lab-island-row is-foot">
+              <span class="ag-mono lab-island-time">00:24.00</span>
+              <div class="ag-progress"><i style="width:62%"></i></div>
+              <span class="ag-mono lab-island-pct">62%</span>
+            </div>
+          </div>
+          <div class="lab-hero-measure top"><span>20</span></div>
+          <div class="lab-hero-measure right"><span>44</span></div>
+          <div class="lab-hero-stage-foot">
+            <span>01 / SURFACE</span>
+            <span>TOP-LIT · 0.5 PX EDGE · NO GLASS</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="lab-strip" aria-hidden="true">
+        <span>01 Foundations</span><span>02 Layout</span><span>03 Actions</span><span>04 Forms</span><span>05 Navigation</span><span>06 Feedback</span><span>07 Data</span><span>08 Overlays</span><span>09 Patterns</span><span>10 Motion</span>
+      </div>
+
+      <!-- ==================================================================
+           01 FOUNDATIONS
+           ================================================================== -->
+      <section class="lab-section" id="foundations" data-section="foundations">
+        <header class="lab-section-head">
+          <div class="lab-section-index">01</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Foundations / The material</div>
+            <h2 class="lab-section-title">A quiet palette,<br>a strict ruler.</h2>
+            <p class="lab-section-lede">Argent is built from a small set of decisions: two appearances, one ink accent, a 4&nbsp;px half-step, a narrow type ramp, and negative space used as structure rather than decoration.</p>
+          </div>
+          <div class="lab-section-meta">07 PLATES<br>LIGHT / DARK<br>AA CONTRAST</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.1</span> COLOR</div>
+              <h3 class="lab-plate-title">Two appearances, one structure.</h3>
+              <p class="lab-plate-desc">The chrome is neutral. Colour is reserved for state, data and brand injection. Every pair below is designed to carry the same component without re-styling it.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="theme-columns">
+                <div class="theme-col" data-theme="light">
+                  <div class="theme-col-head"><span>SOFT SILVER / LIGHT</span><span class="ag-mono">DEFAULT</span></div>
+                  <div class="swatch-grid">
+                    <div class="swatch"><span class="swatch-chip" style="--c:#e8e9eb"></span><span class="swatch-copy"><b>bg</b><code>#E8E9EB</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#fcfcfd"></span><span class="swatch-copy"><b>surface</b><code>#FCFCFD</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#f3f4f6"></span><span class="swatch-copy"><b>sunken</b><code>#F3F4F6</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#14161a"></span><span class="swatch-copy"><b>ink</b><code>#14161A</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#555a61"></span><span class="swatch-copy"><b>ink-2</b><code>#555A61</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#6f747b"></span><span class="swatch-copy"><b>ink-3</b><code>#6F747B</code></span></div>
+                  </div>
+                  <div class="semantic-row">
+                    <span class="ag-badge is-success">Success</span>
+                    <span class="ag-badge is-warning">Warning</span>
+                    <span class="ag-badge is-danger">Danger</span>
+                    <span class="ag-badge is-info">Info</span>
+                  </div>
+                </div>
+                <div class="theme-col" data-theme="dark">
+                  <div class="theme-col-head"><span>GRAPHITE / DARK</span><span class="ag-mono">OPTIONAL</span></div>
+                  <div class="swatch-grid">
+                    <div class="swatch"><span class="swatch-chip" style="--c:#08090a"></span><span class="swatch-copy"><b>bg</b><code>#08090A</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#111214"></span><span class="swatch-copy"><b>surface</b><code>#111214</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#0c0d0f"></span><span class="swatch-copy"><b>sunken</b><code>#0C0D0F</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#f4f4f6"></span><span class="swatch-copy"><b>ink</b><code>#F4F4F6</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#a6a9af"></span><span class="swatch-copy"><b>ink-2</b><code>#A6A9AF</code></span></div>
+                    <div class="swatch"><span class="swatch-chip" style="--c:#8a8d94"></span><span class="swatch-copy"><b>ink-3</b><code>#8A8D94</code></span></div>
+                  </div>
+                  <div class="semantic-row">
+                    <span class="ag-badge is-success">Success</span>
+                    <span class="ag-badge is-warning">Warning</span>
+                    <span class="ag-badge is-danger">Danger</span>
+                    <span class="ag-badge is-info">Info</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>12 TOKENS</span><span>CONTRAST ≥ 4.5:1</span><span>BRAND IS INJECTED</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.2</span> TYPE</div>
+              <h3 class="lab-plate-title">One voice for the tool, one for the story.</h3>
+              <p class="lab-plate-desc">The interface speaks in PuHuiTi / PingFang. The manual and editorial moments may borrow a serif. Specs and measurements speak in mono. Nothing else enters the chrome.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="type-specimen">
+                <div class="type-row">
+                  <div class="type-sample type-display">Quiet<br><em>instrument.</em></div>
+                  <div class="type-meta"><b>Display</b><span>Iowan Old Style / 400 / 88 · 0.96 / −0.035 em</span><span class="ag-mono">EDITORIAL ONLY</span></div>
+                </div>
+                <div class="type-row">
+                  <div class="type-sample type-h1">Signals, not noise.</div>
+                  <div class="type-meta"><b>Heading 1</b><span>Sans / 600 / 30 · 1.15 / −0.025 em</span><span class="ag-mono">PAGE TITLE</span></div>
+                </div>
+                <div class="type-row">
+                  <div class="type-sample type-h2">A smaller statement.</div>
+                  <div class="type-meta"><b>Heading 2</b><span>Sans / 600 / 22 · 1.25 / −0.018 em</span><span class="ag-mono">SECTION</span></div>
+                </div>
+                <div class="type-row">
+                  <div class="type-sample type-body">A line of interface text sits at 14 px with a 1.55 line height. It is quiet enough to read for an hour and clear enough to act on.</div>
+                  <div class="type-meta"><b>Body</b><span>Sans / 400 / 14 · 1.55</span><span class="ag-mono">DEFAULT</span></div>
+                </div>
+                <div class="type-row">
+                  <div class="type-sample type-label">Field label / helper / caption</div>
+                  <div class="type-meta"><b>Label</b><span>Sans / 500 / 12 · 1.45</span><span class="ag-mono">FORM</span></div>
+                </div>
+                <div class="type-row">
+                  <div class="type-sample type-mono">00:24.00 &nbsp; 1.35× &nbsp; 0.5 PX &nbsp; #14161A</div>
+                  <div class="type-meta"><b>Mono</b><span>SF Mono / 400 / 11 · tabular</span><span class="ag-mono">SPEC / DATA</span></div>
+                </div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>3 FAMILIES</span><span>3 WEIGHTS</span><span>TABULAR NUMBERS</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.3</span> SPACE</div>
+              <h3 class="lab-plate-title">The ruler is the layout.</h3>
+              <p class="lab-plate-desc">A 4 px half-step and an 8 px base. Space groups; borders only clarify. The same ruler governs page gutters, panel insets and the gap between a label and its control.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="space-scale">
+                <div class="space-item"><span class="space-bar" style="--w:4px"></span><span class="space-label">4</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:8px"></span><span class="space-label">8</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:12px"></span><span class="space-label">12</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:16px"></span><span class="space-label">16</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:20px"></span><span class="space-label">20</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:24px"></span><span class="space-label">24</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:32px"></span><span class="space-label">32</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:40px"></span><span class="space-label">40</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:48px"></span><span class="space-label">48</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:64px"></span><span class="space-label">64</span></div>
+                <div class="space-item"><span class="space-bar" style="--w:80px"></span><span class="space-label">80</span></div>
+              </div>
+              <div class="space-rules">
+                <div><b>4–8</b><span>label → control<br>icon → text</span></div>
+                <div><b>12–16</b><span>control → control<br>tile inset</span></div>
+                <div><b>24–32</b><span>group → group<br>panel inset</span></div>
+                <div><b>48–64</b><span>section → section<br>page gutter</span></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>BASE 8</span><span>HALF-STEP 4</span><span>SPACE GROUPS, BORDERS CLARIFY</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.4</span> RADIUS &amp; ELEVATION</div>
+              <h3 class="lab-plate-title">Soft corners, hard edges.</h3>
+              <p class="lab-plate-desc">Radius communicates nesting. Elevation is reserved for things that leave the page.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="radius-row">
+                <div class="radius-item"><span style="border-radius:4px"></span><code>4</code></div>
+                <div class="radius-item"><span style="border-radius:8px"></span><code>8</code></div>
+                <div class="radius-item"><span style="border-radius:12px"></span><code>12</code></div>
+                <div class="radius-item"><span style="border-radius:20px"></span><code>20</code></div>
+                <div class="radius-item"><span style="border-radius:999px"></span><code>999</code></div>
+              </div>
+              <div class="shadow-row">
+                <div class="shadow-item shadow-1"><span>1</span><code>REST</code></div>
+                <div class="shadow-item shadow-2"><span>2</span><code>ISLAND</code></div>
+                <div class="shadow-item shadow-3"><span>3</span><code>OVERLAY</code></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>RADIUS 5 STEPS</span><span>SHADOW 3 STEPS</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.5</span> MOTION</div>
+              <h3 class="lab-plate-title">Settle, never bounce.</h3>
+              <p class="lab-plate-desc">Feedback arrives quickly and leaves softly. Everything that changes position settles without overshoot.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="motion-specs">
+                <div class="motion-spec"><b>150 ms</b><span>hover / wash</span><code>ease-out</code></div>
+                <div class="motion-spec"><b>140 ms</b><span>press / scale</span><code>0.97</code></div>
+                <div class="motion-spec"><b>320 ms</b><span>pill / panel</span><code>settle</code></div>
+              </div>
+              <div class="motion-stage"><span class="motion-token" data-motion-demo></span><button class="ag-btn ag-btn-secondary ag-btn-sm" data-replay>Replay settle</button></div>
+            </div>
+            <footer class="lab-plate-foot"><span>NO OVERSHOOT</span><span>REDUCED MOTION</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.6</span> BRAND</div>
+              <h3 class="lab-plate-title">One accent, injected.</h3>
+              <p class="lab-plate-desc">Graphite is the default. A product may inject its own primary without touching the rest of the system.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="brand-row">
+                <button class="brand-option" data-brand-set="graphite"><span class="brand-chip" style="--c:#17191e"></span><b>Graphite</b><code>DEFAULT</code></button>
+                <button class="brand-option" data-brand-set="cobalt"><span class="brand-chip" style="--c:#2456c7"></span><b>Cobalt</b><code>TRUST</code></button>
+                <button class="brand-option" data-brand-set="moss"><span class="brand-chip" style="--c:#3f6b4a"></span><b>Moss</b><code>NATURAL</code></button>
+                <button class="brand-option" data-brand-set="clay"><span class="brand-chip" style="--c:#a2583b"></span><b>Clay</b><code>WARM</code></button>
+              </div>
+              <div class="brand-preview"><button class="ag-btn ag-btn-primary">Publish changes</button><span class="ag-link">View live <span data-icon="arrow-right"></span></span></div>
+            </div>
+            <footer class="lab-plate-foot"><span>BRAND = ONE TOKEN</span><span>CHROME STAYS NEUTRAL</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>01.7</span> DENSITY</div>
+              <h3 class="lab-plate-title">Two speeds, one system.</h3>
+              <p class="lab-plate-desc">Compact reduces row height and inset, not type size. It is a preference, not a second design.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="density-demo">
+                <div class="density-list">
+                  <div class="density-row"><span class="ag-avatar sm">A</span><div><b>Ada Lovelace</b><span>ada@argent.io</span></div><span class="ag-badge">Owner</span></div>
+                  <div class="density-row"><span class="ag-avatar sm">G</span><div><b>Grace Hopper</b><span>grace@argent.io</span></div><span class="ag-badge">Admin</span></div>
+                  <div class="density-row"><span class="ag-avatar sm">K</span><div><b>Ken Thompson</b><span>ken@argent.io</span></div><span class="ag-badge">Member</span></div>
+                </div>
+                <div class="density-actions">
+                  <button class="ag-btn ag-btn-secondary ag-btn-sm" data-density-set="comfortable">Comfortable</button>
+                  <button class="ag-btn ag-btn-quiet ag-btn-sm" data-density-set="compact">Compact</button>
+                </div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>ROW 44 → 38</span><span>TYPE UNCHANGED</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           02 LAYOUT & SUB-SPACE
+           ================================================================== -->
+      <section class="lab-section" id="layout" data-section="layout">
+        <header class="lab-section-head">
+          <div class="lab-section-index">02</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Layout / Where things live</div>
+            <h2 class="lab-section-title">Primary work,<br>secondary context.</h2>
+            <p class="lab-section-lede">A screen is not one space. It is a hierarchy: persistent chrome, primary work, secondary context, and transient overlays. Negative space is the material that keeps them apart.</p>
+          </div>
+          <div class="lab-section-meta">05 PLATES<br>4 SPACE ROLES<br>3 DENSITIES</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>02.1</span> APP SHELL</div>
+              <h3 class="lab-plate-title">Anatomy of a workspace.</h3>
+              <p class="lab-plate-desc">One persistent frame, one primary surface, one optional context panel. The inspector is not a second page; it is a subordinate rhythm. The same shell works for analytics, settings and editors.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="shell-map">
+                <div class="shell-map-top"><span class="shell-map-brand">ARGENT</span><span class="shell-map-tabs"><i></i><i></i><i></i></span><span class="shell-map-avatar">A</span></div>
+                <div class="shell-map-body">
+                  <div class="shell-map-rail" data-zone="CHROME"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="shell-map-main" data-zone="PRIMARY"><div class="shell-map-head"><i></i><i></i></div><div class="shell-map-stats"><i></i><i></i><i></i></div><div class="shell-map-block"></div><div class="shell-map-block tall"></div></div>
+                  <div class="shell-map-inspector" data-zone="SECONDARY"><i></i><i></i><i></i><i></i></div>
+                </div>
+                <span class="shell-map-tag tag-chrome">01 CHROME</span>
+                <span class="shell-map-tag tag-primary">02 PRIMARY</span>
+                <span class="shell-map-tag tag-secondary">03 SECONDARY</span>
+                <span class="shell-map-tag tag-negative">NEGATIVE SPACE</span>
+              </div>
+              <div class="zone-legend">
+                <div><span class="zone-dot chrome"></span><b>Chrome</b><em>Persistent. 56 px. Hairline seam, no shadow.</em></div>
+                <div><span class="zone-dot primary"></span><b>Primary</b><em>The work. Tables, canvas, forms, reading.</em></div>
+                <div><span class="zone-dot secondary"></span><b>Secondary</b><em>Context. Inspector, detail, preview, filters.</em></div>
+                <div><span class="zone-dot tertiary"></span><b>Tertiary</b><em>Transient. Menus, dialogs, sheets, toasts.</em></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>TOPBAR 56</span><span>RAIL 232</span><span>INSPECTOR 320</span><span>MAIN ≥ 640</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>02.2</span> NEGATIVE SPACE</div>
+              <h3 class="lab-plate-title">Space is a group, not a gap.</h3>
+              <p class="lab-plate-desc">Related things sit closer. Unrelated things sit farther. A border is the last resort, not the first.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="space-pair">
+                <div class="space-example is-good"><div class="space-box"></div><div class="space-box"></div><div class="space-gap">8</div><div class="space-box"></div><div class="space-gap wide">24</div><div class="space-box"></div><span class="space-verdict">GROUPED</span></div>
+                <div class="space-example is-bad"><div class="space-box"></div><div class="space-box"></div><div class="space-box"></div><div class="space-box"></div><span class="space-verdict">FENCED</span></div>
+              </div>
+              <div class="space-note"><b>Rule of thumb</b><span>If you need a divider to explain the relationship, the spacing is already wrong.</span></div>
+            </div>
+            <footer class="lab-plate-foot"><span>PROXIMITY &gt; BORDERS</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>02.3</span> SUB-SPACE</div>
+              <h3 class="lab-plate-title">One screen, three rhythms.</h3>
+              <p class="lab-plate-desc">The primary space is generous. The secondary space is tighter. The transient space is denser still.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="rhythm-list">
+                <div class="rhythm-row"><span class="rhythm-tag">PRIMARY</span><span class="rhythm-bar primary"></span><span class="ag-mono">40 / 32 / 24</span></div>
+                <div class="rhythm-row"><span class="rhythm-tag">SECONDARY</span><span class="rhythm-bar secondary"></span><span class="ag-mono">20 / 16 / 8</span></div>
+                <div class="rhythm-row"><span class="rhythm-tag">TERTIARY</span><span class="rhythm-bar tertiary"></span><span class="ag-mono">12 / 8 / 4</span></div>
+              </div>
+              <p class="lab-footnote">Do not let the inspector inherit the page's 40 px rhythm. It is a different instrument.</p>
+            </div>
+            <footer class="lab-plate-foot"><span>PRIMARY 40</span><span>SECONDARY 20</span><span>TERTIARY 12</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>02.4</span> SPLIT &amp; INSPECTOR</div>
+              <h3 class="lab-plate-title">Context arrives, it does not take over.</h3>
+              <p class="lab-plate-desc">A secondary panel opens beside the work. On narrow screens it becomes a sheet. The primary surface never reflows to a smaller font.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="split-toolbar"><span class="ag-kicker">SECONDARY SPACE / 320 PX</span><button class="ag-btn ag-btn-secondary ag-btn-sm" data-split-toggle aria-expanded="true">Toggle inspector</button></div>
+              <div class="split-demo" data-split-demo>
+                <div class="split-main"><span class="ag-kicker">PRIMARY</span><div class="split-lines"><i></i><i></i><i></i><i></i></div></div>
+                <div class="split-inspector"><span class="ag-kicker">SECONDARY</span><div class="split-lines small"><i></i><i></i><i></i></div><span class="ag-mono">320 PX</span></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>MAIN + 320</span><span>COLLAPSES TO SHEET</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>02.5</span> PAGE RHYTHM</div>
+              <h3 class="lab-plate-title">The page is a stack of decisions.</h3>
+              <p class="lab-plate-desc">A page has a title, a reason to act, and a sequence of increasingly specific groups. The rhythm below is the default; density and content can compress it, never invert it.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="rhythm-page">
+                <div class="rhythm-page-row"><span class="ag-kicker">TITLE / 16</span><div class="rhythm-page-title"></div><div class="rhythm-page-sub"></div></div>
+                <div class="rhythm-page-row"><span class="ag-kicker">ACTIONS / 24</span><div class="rhythm-page-actions"><i></i><i></i></div></div>
+                <div class="rhythm-page-row"><span class="ag-kicker">STATS / 32</span><div class="rhythm-page-stats"><i></i><i></i><i></i><i></i></div></div>
+                <div class="rhythm-page-row"><span class="ag-kicker">WORK / 48</span><div class="rhythm-page-work"><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>HEAD 16</span><span>ACTIONS 24</span><span>WORK 48</span><span>ONE DOMINANT SPACE</span></footer>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- ==================================================================
+           03 ACTIONS
+           ================================================================== -->
+      <section class="lab-section" id="actions" data-section="actions">
+        <header class="lab-section-head">
+          <div class="lab-section-index">03</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Actions / What can be done</div>
+            <h2 class="lab-section-title">One primary.<br>Everything else quiet.</h2>
+            <p class="lab-section-lede">An action declares its weight before its label. Primary is an ink capsule. Secondary is a surface. Quiet is a wash. Danger is red, and it still asks. Icon-only actions keep a tooltip and a label for screen readers.</p>
+          </div>
+          <div class="lab-section-meta">04 PLATES<br>6 STATES<br>1 PRIMARY / SURFACE</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>03.1</span> VARIANTS &amp; SIZES</div>
+              <h3 class="lab-plate-title">A small vocabulary of weight.</h3>
+              <p class="lab-plate-desc">Three sizes, five weights. A toolbar usually holds one primary and a row of quiet icons; a dialog holds one primary and one quiet cancel.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="action-board">
+                <div class="action-line"><span class="action-label">PRIMARY</span><div class="ag-cluster"><button class="ag-btn ag-btn-primary ag-btn-sm">Small</button><button class="ag-btn ag-btn-primary">Publish</button><button class="ag-btn ag-btn-primary ag-btn-lg">Publish changes</button><button class="ag-btn ag-btn-primary is-loading">Publishing</button></div></div>
+                <div class="action-line"><span class="action-label">SECONDARY</span><div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-sm">Small</button><button class="ag-btn ag-btn-secondary">Duplicate</button><button class="ag-btn ag-btn-secondary ag-btn-lg">Export report</button><button class="ag-btn ag-btn-secondary" disabled>Disabled</button></div></div>
+                <div class="action-line"><span class="action-label">QUIET</span><div class="ag-cluster"><button class="ag-btn ag-btn-quiet">Cancel</button><button class="ag-btn ag-btn-quiet">Skip for now</button><button class="ag-btn ag-btn-ghost">Learn more <span data-icon="arrow-up-right"></span></button></div></div>
+                <div class="action-line"><span class="action-label">DANGER</span><div class="ag-cluster"><button class="ag-btn ag-btn-danger">Delete workspace</button><button class="ag-btn ag-btn-danger-quiet">Remove member</button></div></div>
+                <div class="action-line"><span class="action-label">ICON</span><div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-icon" aria-label="Add" data-tooltip="Add"><span data-icon="plus"></span></button><button class="ag-btn ag-btn-quiet ag-btn-icon" aria-label="More" data-tooltip="More"><span data-icon="more"></span></button><button class="ag-btn ag-btn-quiet ag-btn-icon" aria-label="Settings" data-tooltip="Settings"><span data-icon="settings"></span></button><span class="ag-link">Open live <span data-icon="arrow-right"></span></span></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>SM 28 / MD 34 / LG 40</span><span>RADIUS 8</span><span>ONE PRIMARY</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>03.2</span> STATES</div>
+              <h3 class="lab-plate-title">Every state is visible before it is needed.</h3>
+              <p class="lab-plate-desc">Forced-state specimens: hover, focus, pressed, disabled and loading. The press is a 0.97 scale; loading keeps the width and replaces the label with a spinner.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="state-matrix">
+                <div class="state-matrix-head"><span></span><span>REST</span><span>HOVER</span><span>FOCUS</span><span>PRESSED</span><span>DISABLED</span><span>LOADING</span></div>
+                <div class="state-row"><span class="state-row-label">PRIMARY</span><button class="ag-btn ag-btn-primary">Publish</button><button class="ag-btn ag-btn-primary is-hover">Publish</button><button class="ag-btn ag-btn-primary is-focus">Publish</button><button class="ag-btn ag-btn-primary is-pressed">Publish</button><button class="ag-btn ag-btn-primary is-disabled">Publish</button><button class="ag-btn ag-btn-primary is-loading">Publish</button></div>
+                <div class="state-row"><span class="state-row-label">SECONDARY</span><button class="ag-btn ag-btn-secondary">Duplicate</button><button class="ag-btn ag-btn-secondary is-hover">Duplicate</button><button class="ag-btn ag-btn-secondary is-focus">Duplicate</button><button class="ag-btn ag-btn-secondary is-pressed">Duplicate</button><button class="ag-btn ag-btn-secondary is-disabled">Duplicate</button><button class="ag-btn ag-btn-secondary is-loading">Duplicate</button></div>
+                <div class="state-row"><span class="state-row-label">QUIET</span><button class="ag-btn ag-btn-quiet">Skip</button><button class="ag-btn ag-btn-quiet is-hover">Skip</button><button class="ag-btn ag-btn-quiet is-focus">Skip</button><button class="ag-btn ag-btn-quiet is-pressed">Skip</button><button class="ag-btn ag-btn-quiet is-disabled">Skip</button><button class="ag-btn ag-btn-quiet is-loading">Skip</button></div>
+                <div class="state-row"><span class="state-row-label">DANGER</span><button class="ag-btn ag-btn-danger">Delete</button><button class="ag-btn ag-btn-danger is-hover">Delete</button><button class="ag-btn ag-btn-danger is-focus">Delete</button><button class="ag-btn ag-btn-danger is-pressed">Delete</button><button class="ag-btn ag-btn-danger is-disabled">Delete</button><button class="ag-btn ag-btn-danger is-loading">Delete</button></div>
+                <div class="state-row"><span class="state-row-label">ICON</span><button class="ag-btn ag-btn-secondary ag-btn-icon" aria-label="Add"><span data-icon="plus"></span></button><button class="ag-btn ag-btn-secondary ag-btn-icon is-hover" aria-label="Add"><span data-icon="plus"></span></button><button class="ag-btn ag-btn-secondary ag-btn-icon is-focus" aria-label="Add"><span data-icon="plus"></span></button><button class="ag-btn ag-btn-secondary ag-btn-icon is-pressed" aria-label="Add"><span data-icon="plus"></span></button><button class="ag-btn ag-btn-secondary ag-btn-icon is-disabled" aria-label="Add"><span data-icon="plus"></span></button><button class="ag-btn ag-btn-secondary ag-btn-icon is-loading" aria-label="Loading"><span data-icon="plus"></span></button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>WASH 5.5 / 8.5 / 12%</span><span>PRESS 0.97</span><span>FOCUS 2 PX</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>03.3</span> ANATOMY</div>
+              <h3 class="lab-plate-title">The button is a small machine.</h3>
+              <p class="lab-plate-desc">Height, inset, gap and icon size are one set. Do not mix a 30 px control into a 40 px row.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="anatomy">
+                <div class="anatomy-target"><button class="ag-btn ag-btn-primary ag-btn-lg">Publish changes <span data-icon="arrow-right"></span></button></div>
+                <span class="anatomy-label top">36 H</span>
+                <span class="anatomy-label left">18 PAD</span>
+                <span class="anatomy-label right">GAP 8</span>
+                <span class="anatomy-label bottom">RADIUS 10</span>
+                <span class="anatomy-rule h top-rule"></span>
+                <span class="anatomy-rule h bottom-rule"></span>
+              </div>
+              <div class="anatomy-specs"><span><b>Font</b> 13.5 / 600</span><span><b>Icon</b> 17 px</span><span><b>Focus</b> 2 px / +2</span></div>
+            </div>
+            <footer class="lab-plate-foot"><span>NO MAGIC NUMBERS</span><span>ONE HEIGHT SYSTEM</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>03.4</span> GROUPS</div>
+              <h3 class="lab-plate-title">Related actions share a body.</h3>
+              <p class="lab-plate-desc">A group is for siblings. A split button is for a primary with a smaller menu. A toggle group is a segmented control that acts.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="action-group-demo">
+                <div class="ag-btn-group"><button class="ag-btn ag-btn-secondary">Day</button><button class="ag-btn ag-btn-secondary is-on">Week</button><button class="ag-btn ag-btn-secondary">Month</button></div>
+                <div class="split-action"><button class="ag-btn ag-btn-primary">Publish</button><button class="ag-btn ag-btn-primary ag-btn-icon" aria-label="More publish options"><span data-icon="chevron-down"></span></button></div>
+                <div class="ag-segment" data-segment><span class="ag-seg-thumb"></span><button class="ag-seg is-on">Grid</button><button class="ag-seg">List</button></div>
+              </div>
+              <p class="lab-footnote">A split button is one intent with a secondary path. Never use it for two equal actions.</p>
+            </div>
+            <footer class="lab-plate-foot"><span>GROUP = SIBLINGS</span><span>SPLIT = ONE INTENT</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           04 FORMS
+           ================================================================== -->
+      <section class="lab-section" id="forms" data-section="forms">
+        <header class="lab-section-head">
+          <div class="lab-section-index">04</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Forms / Asking well</div>
+            <h2 class="lab-section-title">A field is a sentence<br>with a slot.</h2>
+            <p class="lab-section-lede">Label, control, help, error. The label is persistent, the placeholder is never the label, and the error appears next to the thing that failed. Choice controls are native first; custom chrome is only a skin.</p>
+          </div>
+          <div class="lab-section-meta">04 PLATES<br>8 STATES<br>NATIVE INPUTS</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>04.1</span> FIELD STATES</div>
+              <h3 class="lab-plate-title">Rest is not enough.</h3>
+              <p class="lab-plate-desc">Every field has a rest, hover, focus, filled, error, disabled and read-only state. Focus is a 3 px soft ring plus a one-step stronger border; error uses the same geometry with a red ink.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="field-grid">
+                <div class="ag-field"><label class="ag-label">Rest</label><input class="ag-input" placeholder="ada@argent.io"></div>
+                <div class="ag-field"><label class="ag-label">Hover</label><input class="ag-input is-hover" value="ada@argent.io"></div>
+                <div class="ag-field"><label class="ag-label">Focus</label><input class="ag-input is-focus" value="ada@argent.io"></div>
+                <div class="ag-field"><label class="ag-label">Filled</label><input class="ag-input" value="Ada Lovelace"></div>
+                <div class="ag-field"><label class="ag-label">Error</label><input class="ag-input is-error" value="ada@argent"><span class="ag-help is-error">Enter a complete email address.</span></div>
+                <div class="ag-field"><label class="ag-label">Success</label><input class="ag-input is-success" value="ada@argent.io"><span class="ag-help is-success">Verified.</span></div>
+                <div class="ag-field"><label class="ag-label">Disabled</label><input class="ag-input" value="Unavailable" disabled></div>
+                <div class="ag-field"><label class="ag-label">Read only</label><input class="ag-input" value="Read only" readonly></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>FOCUS RING 3</span><span>BORDER 1</span><span>ERROR INLINE</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>04.2</span> CHOICE</div>
+              <h3 class="lab-plate-title">Use the native control.</h3>
+              <p class="lab-plate-desc">Checkboxes, radios, switches, sliders and steppers keep native semantics; the skin is a token layer.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="choice-grid">
+                <div class="choice-block"><span class="ag-kicker">CHECKBOX</span><label class="ag-check"><input type="checkbox" checked><span>Email me about releases</span></label><label class="ag-check"><input type="checkbox"><span>Weekly digest</span></label><label class="ag-check is-disabled"><input type="checkbox" disabled><span>Disabled</span></label></div>
+                <div class="choice-block"><span class="ag-kicker">RADIO</span><label class="ag-check ag-radio"><input type="radio" name="plan" checked><span>Team</span></label><label class="ag-check ag-radio"><input type="radio" name="plan"><span>Business</span></label><label class="ag-check ag-radio"><input type="radio" name="plan"><span>Enterprise</span></label></div>
+                <div class="choice-block"><span class="ag-kicker">SWITCH</span><label class="ag-switch"><input type="checkbox" checked><span>Auto-save</span></label><label class="ag-switch"><input type="checkbox"><span>Public link</span></label><label class="ag-switch is-disabled"><input type="checkbox" disabled><span>Locked</span></label></div>
+                <div class="choice-block"><span class="ag-kicker">SLIDER</span><div class="ag-slider-row"><label>Opacity</label><output>72%</output><input class="ag-slider" type="range" min="0" max="100" value="72" data-suffix="%"></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>NATIVE FIRST</span><span>NO CUSTOM LOGIC</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>04.3</span> COMPLEX FIELDS</div>
+              <h3 class="lab-plate-title">The field has a job.</h3>
+              <p class="lab-plate-desc">Search, select, textarea, tags and a file well. Each has one affordance and one clear empty state.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="complex-grid">
+                <div class="ag-field"><label class="ag-label">Select</label><select class="ag-input ag-select"><option>Last 30 days</option><option>Last 7 days</option></select></div>
+                <div class="ag-field"><label class="ag-label">Search</label><div class="ag-input-wrap"><span data-icon="search"></span><input class="ag-input" placeholder="Search signals…"><span class="ag-input-addon"><span class="ag-kbd">⌘K</span></span></div></div>
+                <div class="ag-field is-full"><label class="ag-label">Note <span class="ag-optional">Optional</span></label><textarea class="ag-input ag-textarea" placeholder="Add context for the next person…"></textarea></div>
+                <div class="ag-field is-full"><label class="ag-label">Tags</label><div class="ag-tags"><span class="ag-tag">retention <button aria-label="Remove"><span data-icon="x"></span></button></span><span class="ag-tag">enterprise <button aria-label="Remove"><span data-icon="x"></span></button></span><span class="ag-tag is-active">+ add</span></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>ONE AFFORDANCE</span><span>VISIBLE EMPTY</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>04.4</span> FORM LAYOUT</div>
+              <h3 class="lab-plate-title">A form is a sequence, not a grid.</h3>
+              <p class="lab-plate-desc">Start with the smallest useful group, then expand. The actions sit at the end of the group, not in a separate universe. Validation is inline first, summary second.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="form-demo">
+                <div class="form-demo-head"><div><span class="ag-kicker">WORKSPACE PROFILE</span><h4>Make it recognizable.</h4><p>This appears in invitations, exports and the command palette.</p></div><span class="ag-badge is-success">Verified</span></div>
+                <div class="ag-form-grid">
+                  <div class="ag-field"><label class="ag-label">Workspace name</label><input class="ag-input" value="Argent Labs"><span class="ag-help">Lowercase, no spaces. Used in URLs.</span></div>
+                  <div class="ag-field"><label class="ag-label">Owner</label><select class="ag-input ag-select"><option>Ada Lovelace</option><option>Grace Hopper</option></select></div>
+                  <div class="ag-field is-full"><label class="ag-label">Description</label><textarea class="ag-input ag-textarea">A quiet place for loud ideas.</textarea></div>
+                </div>
+                <div class="ag-switch-row field-switch"><label class="ag-switch"><input type="checkbox" checked><span>Allow members to invite others</span></label><span class="ag-help">Admins can always invite.</span></div>
+                <div class="form-demo-foot"><span class="ag-save is-dirty"><span data-icon="dot"></span><span>Unsaved changes</span></span><div class="ag-cluster"><button class="ag-btn ag-btn-quiet">Discard</button><button class="ag-btn ag-btn-primary">Save changes</button></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>INLINE FIRST</span><span>ACTIONS AT THE END</span><span>DIRTY STATE</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           05 NAVIGATION
+           ================================================================== -->
+      <section class="lab-section" id="navigation" data-section="navigation">
+        <header class="lab-section-head">
+          <div class="lab-section-index">05</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Navigation / Where am I</div>
+            <h2 class="lab-section-title">A map, not a maze.</h2>
+            <p class="lab-section-lede">Navigation is a small set of repeated decisions: a rail for destinations, tabs for sibling views, breadcrumbs for depth, a stepper for progress. Keep one active thing per level.</p>
+          </div>
+          <div class="lab-section-meta">02 PLATES<br>3 TAB FORMS<br>1 ACTIVE / LEVEL</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>05.1</span> TABS &amp; SEGMENTS</div>
+              <h3 class="lab-plate-title">Switch views without moving the page.</h3>
+              <p class="lab-plate-desc">Use pill tabs inside a panel, underlined tabs for a page, and a segmented control for a quick mode. A vertical tab list is a compact rail.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="tabs-board">
+                <div class="tabs-sample">
+                  <div class="ag-tabs is-pill" data-tabs><span class="ag-tab-indicator"></span><button class="ag-tab is-active" data-tab="a"><span data-icon="chart"></span>Overview</button><button class="ag-tab" data-tab="b"><span data-icon="activity"></span>Signals</button><button class="ag-tab" data-tab="c"><span data-icon="table"></span>Records</button></div>
+                  <div class="tabs-panel"><span>PILL TABS / IN-PANEL</span><div class="split-lines"><i></i><i></i><i></i></div></div>
+                </div>
+                <div class="tabs-sample">
+                  <div class="ag-tabs is-underline"><button class="ag-tab is-active">Overview</button><button class="ag-tab">Members</button><button class="ag-tab">Billing</button><button class="ag-tab" disabled>Audit</button></div>
+                  <div class="tabs-panel"><span>UNDERLINE TABS / PAGE</span><div class="split-lines"><i></i><i></i><i></i></div></div>
+                </div>
+                <div class="tabs-sample">
+                  <div class="ag-tabs is-vertical"><button class="ag-tab is-active">General</button><button class="ag-tab">Members</button><button class="ag-tab">Security</button><button class="ag-tab">Danger</button></div>
+                  <div class="tabs-panel"><span>VERTICAL TABS / SETTINGS</span><div class="split-lines"><i></i><i></i><i></i></div></div>
+                </div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>PILL / UNDERLINE / VERTICAL</span><span>ONE ACTIVE</span><span>ARROW KEYS</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>05.2</span> WAYFINDING</div>
+              <h3 class="lab-plate-title">Depth should be visible.</h3>
+              <p class="lab-plate-desc">A breadcrumb for hierarchy, pagination for volume, a stepper for progress. None of them should be decorative: each answers a question the user is already asking.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="wayfinding">
+                <div class="wayfinding-row"><span class="ag-kicker">BREADCRUMB</span><div class="ag-breadcrumb"><a href="#">Workspace</a><span data-icon="chevron-right"></span><a href="#">Signals</a><span data-icon="chevron-right"></span><span class="is-current">Retention</span></div></div>
+                <div class="wayfinding-row"><span class="ag-kicker">PAGINATION</span><div class="ag-pagination"><button class="ag-page-btn" aria-label="Previous"><span data-icon="chevron-left"></span></button><button class="ag-page-btn is-active">1</button><button class="ag-page-btn">2</button><button class="ag-page-btn">3</button><span class="ag-page-btn">…</span><button class="ag-page-btn">12</button><button class="ag-page-btn" aria-label="Next"><span data-icon="chevron-right"></span></button><span class="ag-help">1–25 of 312</span></div></div>
+                <div class="wayfinding-row"><span class="ag-kicker">STEPPER</span><div class="ag-steps"><div class="ag-step is-done"><span class="ag-step-marker"><span data-icon="check"></span></span><div class="ag-step-copy"><span class="ag-step-title">Source</span><span class="ag-step-sub">Connected</span></div></div><span class="ag-step-line"></span><div class="ag-step is-active"><span class="ag-step-marker">02</span><div class="ag-step-copy"><span class="ag-step-title">Mapping</span><span class="ag-step-sub">3 of 7 fields</span></div></div><span class="ag-step-line"></span><div class="ag-step"><span class="ag-step-marker">03</span><div class="ag-step-copy"><span class="ag-step-title">Review</span><span class="ag-step-sub">Pending</span></div></div><span class="ag-step-line"></span><div class="ag-step"><span class="ag-step-marker">04</span><div class="ag-step-copy"><span class="ag-step-title">Done</span><span class="ag-step-sub">Pending</span></div></div></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>DEPTH / VOLUME / PROGRESS</span><span>ONE JOB EACH</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           06 FEEDBACK
+           ================================================================== -->
+      <section class="lab-section" id="feedback" data-section="feedback">
+        <header class="lab-section-head">
+          <div class="lab-section-index">06</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Feedback / What just happened</div>
+            <h2 class="lab-section-title">Tell the truth,<br>then get out of the way.</h2>
+            <p class="lab-section-lede">Banners stay. Toasts pass. Skeletons preserve the shape of the answer. Empty states explain the next move. A destructive action asks once, clearly, with the consequence in the sentence.</p>
+          </div>
+          <div class="lab-section-meta">04 PLATES<br>4 BANNERS<br>3 LOADING STATES</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>06.1</span> BANNERS</div>
+              <h3 class="lab-plate-title">A banner is a sentence with a job.</h3>
+              <p class="lab-plate-desc">Inline, persistent, dismissible. The action sits inside the banner, not far away. Colour is status, not decoration.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="banner-stack">
+                <div class="ag-banner"><span data-icon="info"></span><div class="ag-banner-body"><strong>New in Argent 1.0</strong>Spec mode is now available in the toolbar. It reveals the measurement grid behind every plate.</div><button class="ag-btn ag-btn-quiet ag-btn-sm">Take a look</button></div>
+                <div class="ag-banner is-success"><span data-icon="check-circle"></span><div class="ag-banner-body"><strong>Workspace verified</strong>All 24 members now have access to production signals.</div></div>
+                <div class="ag-banner is-warning"><span data-icon="alert-triangle"></span><div class="ag-banner-body"><strong>2 members are over their seat limit</strong>Billing will update at the end of the cycle.</div><button class="ag-btn ag-btn-secondary ag-btn-sm">Manage seats</button></div>
+                <div class="ag-banner is-danger"><span data-icon="alert-circle"></span><div class="ag-banner-body"><strong>Export failed</strong>The source contains a malformed date. Fix row 18 and try again.</div><button class="ag-btn ag-btn-danger-quiet ag-btn-sm">Review row</button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>INLINE ACTIONS</span><span>PERSISTENT</span><span>4 STATUSES</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>06.2</span> TRANSIENT</div>
+              <h3 class="lab-plate-title">Toasts pass.</h3>
+              <p class="lab-plate-desc">A toast confirms a completed action and gets out of the way. It never contains a decision the user must make.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="feedback-buttons"><button class="ag-btn ag-btn-secondary" data-demo-toast="success">Success toast</button><button class="ag-btn ag-btn-secondary" data-demo-toast="danger">Error toast</button><button class="ag-btn ag-btn-secondary" data-demo-toast="info">Info toast</button></div>
+              <div class="progress-stack"><div><span class="ag-kicker">LINEAR / 62%</span><div class="ag-progress"><i style="width:62%"></i></div></div><div><span class="ag-kicker">SUCCESS / 100%</span><div class="ag-progress is-success"><i style="width:100%"></i></div></div><div class="spinner-row"><span class="ag-spinner"></span><span class="ag-spinner lg"></span><span class="ag-help">Spinner is a last resort; prefer a skeleton.</span></div></div>
+            </div>
+            <footer class="lab-plate-foot"><span>NO DECISIONS</span><span>AUTO-DISMISS</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>06.3</span> LOADING</div>
+              <h3 class="lab-plate-title">Keep the shape of the answer.</h3>
+              <p class="lab-plate-desc">Skeletons are preferable to a spinner. Use a shimmer only while the layout is stable; never animate the whole page.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="skeleton-demo"><div class="skeleton-demo-head"><span class="ag-skeleton circle" style="width:28px;height:28px"></span><span class="ag-skeleton text" style="width:42%"></span></div><div class="ag-skeleton text" style="width:100%"></div><div class="ag-skeleton text" style="width:84%"></div><div class="ag-skeleton text" style="width:64%"></div><div class="skeleton-table"><span class="ag-skeleton" style="height:24px"></span><span class="ag-skeleton" style="height:24px"></span><span class="ag-skeleton" style="height:24px"></span></div></div>
+            </div>
+            <footer class="lab-plate-foot"><span>SHAPE FIRST</span><span>NO PAGE SHIMMER</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>06.4</span> EMPTY / ERROR / SAVED</div>
+              <h3 class="lab-plate-title">The state is a page too.</h3>
+              <p class="lab-plate-desc">Empty explains why and what next. Error names the failure and offers a way forward. Saved is quiet: a check and a time, not a celebration.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="state-cards">
+                <div class="ag-empty"><span class="ag-empty-icon"><span data-icon="inbox"></span></span><h4>No signals yet</h4><p>Connect a source and we will start collecting events. It takes about a minute.</p><button class="ag-btn ag-btn-primary ag-btn-sm">Connect source</button></div>
+                <div class="state-card is-error"><span class="ag-empty-icon"><span data-icon="alert-circle"></span></span><h4>We could not load this view</h4><p>The query took too long. Try a shorter window, or check the source connection.</p><div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-sm">Retry</button><button class="ag-btn ag-btn-quiet ag-btn-sm">View logs</button></div></div>
+                <div class="state-card is-saved"><span class="state-check"><span data-icon="check"></span></span><h4>All changes saved</h4><p>Last saved just now. You can close this page; we will keep the draft.</p><div class="ag-save"><span data-icon="clock"></span><span>Synced 4s ago</span></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>EMPTY HAS A NEXT MOVE</span><span>ERROR HAS A PATH</span><span>SAVED IS QUIET</span></footer>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- ==================================================================
+           07 DATA
+           ================================================================== -->
+      <section class="lab-section" id="data" data-section="data">
+        <header class="lab-section-head">
+          <div class="lab-section-index">07</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Data / Reading the work</div>
+            <h2 class="lab-section-title">Dense, but never<br>crowded.</h2>
+            <p class="lab-section-lede">Tables, lists and charts are the primary space. They get the generous rhythm. Numerals are tabular, status is a badge, and the row is the unit of selection. The empty and loading states preserve the same geometry.</p>
+          </div>
+          <div class="lab-section-meta">04 PLATES<br>ROW 44<br>EMPTY / LOADING / SORTED</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>07.1</span> TABLE</div>
+              <h3 class="lab-plate-title">The row is the unit.</h3>
+              <p class="lab-plate-desc">A toolbar for scope, a header for sort, a row for selection, a footer for pagination. The table is not a grid of cards; it is a reading surface.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="table-specimen">
+                <div class="table-toolbar">
+                  <div class="ag-input-wrap table-search"><span data-icon="search"></span><input class="ag-input" placeholder="Search 312 signals…"></div>
+                  <button class="ag-chip is-on">All status <span data-icon="chevron-down"></span></button>
+                  <button class="ag-chip">Owner <span data-icon="chevron-down"></span></button>
+                  <span class="ag-spacer"></span>
+                  <button class="ag-btn ag-btn-secondary ag-btn-sm"><span data-icon="filter"></span>Filter</button>
+                  <button class="ag-btn ag-btn-primary ag-btn-sm">Export</button>
+                </div>
+                <div class="ag-table-wrap">
+                  <table class="ag-table" data-table>
+                    <thead><tr><th class="ag-table-check"><input type="checkbox" data-check-all aria-label="Select all"></th><th class="is-sortable is-sorted">Signal <span class="ag-sort"><span data-icon="arrow-down"></span></span></th><th>Owner</th><th class="is-num">Events</th><th>Status</th><th>Updated</th><th class="ag-table-actions"></th></tr></thead>
+                    <tbody>
+                      <tr class="is-selected"><td class="ag-table-check"><input type="checkbox" data-row-check checked aria-label="Select North star retention"></td><td><span class="ag-table-strong">North star retention</span><br><span class="ag-micro">Retention · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">A</span>Ada</span></td><td class="is-num">12,480</td><td><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Live</span></td><td class="ag-mono">2m ago</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="More"><span data-icon="more"></span></button></td></tr>
+                      <tr><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="Select Weekly activation"></td><td><span class="ag-table-strong">Weekly activation</span><br><span class="ag-micro">Growth · staging</span></td><td><span class="ag-row"><span class="ag-avatar sm">G</span>Grace</span></td><td class="is-num">8,104</td><td><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Live</span></td><td class="ag-mono">8m ago</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="More"><span data-icon="more"></span></button></td></tr>
+                      <tr><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="Select Paywall funnel"></td><td><span class="ag-table-strong">Paywall funnel</span><br><span class="ag-micro">Revenue · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">K</span>Ken</span></td><td class="is-num">3,912</td><td><span class="ag-badge is-warning"><span class="ag-dot is-warning"></span>Paused</span></td><td class="ag-mono">1h ago</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="More"><span data-icon="more"></span></button></td></tr>
+                      <tr><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="Select Enterprise cohort"></td><td><span class="ag-table-strong">Enterprise cohort</span><br><span class="ag-micro">Accounts · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">L</span>Lin</span></td><td class="is-num">1,206</td><td><span class="ag-badge"><span class="ag-dot"></span>Draft</span></td><td class="ag-mono">3h ago</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="More"><span data-icon="more"></span></button></td></tr>
+                      <tr><td class="ag-table-check"><input type="checkbox" data-row-check aria-label="Select Trial conversion"></td><td><span class="ag-table-strong">Trial conversion</span><br><span class="ag-micro">Revenue · production</span></td><td><span class="ag-row"><span class="ag-avatar sm">M</span>Mira</span></td><td class="is-num">902</td><td><span class="ag-badge is-danger"><span class="ag-dot is-danger"></span>Failed</span></td><td class="ag-mono">Yesterday</td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="More"><span data-icon="more"></span></button></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-foot"><span class="ag-help">1–5 of 312</span><div class="ag-pagination"><button class="ag-page-btn" aria-label="Previous"><span data-icon="chevron-left"></span></button><button class="ag-page-btn is-active">1</button><button class="ag-page-btn">2</button><button class="ag-page-btn">3</button><span class="ag-page-btn">…</span><button class="ag-page-btn">63</button><button class="ag-page-btn" aria-label="Next"><span data-icon="chevron-right"></span></button></div></div>
+                <div class="bulk-inline"><span><b>1</b> selected</span><span class="ag-help">North star retention</span><span class="ag-spacer"></span><button class="ag-btn ag-btn-quiet ag-btn-sm">Clear</button><button class="ag-btn ag-btn-secondary ag-btn-sm">Move…</button><button class="ag-btn ag-btn-danger-quiet ag-btn-sm">Remove</button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>ROW 44</span><span>HEADER 34</span><span>12 COLUMN GRID</span><span>SELECTION FIRST</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>07.2</span> LOADING &amp; EMPTY</div>
+              <h3 class="lab-plate-title">Same shape, different truth.</h3>
+              <p class="lab-plate-desc">Skeletons keep the columns. Empty explains why and offers the one next action.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="table-states">
+                <div class="mini-table-loading"><span class="ag-skeleton" style="height:22px"></span><span class="ag-skeleton" style="height:22px"></span><span class="ag-skeleton" style="height:22px"></span><span class="ag-skeleton" style="height:22px"></span></div>
+                <div class="ag-empty"><span class="ag-empty-icon"><span data-icon="table"></span></span><h4>No records in this window</h4><p>Try a wider date range or clear the status filter.</p><button class="ag-btn ag-btn-secondary ag-btn-sm">Clear filters</button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>SKELETON = COLUMNS</span><span>EMPTY = NEXT MOVE</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>07.3</span> STATS &amp; CHART</div>
+              <h3 class="lab-plate-title">The number and its shape.</h3>
+              <p class="lab-plate-desc">A stat is a label, a value and a change. The chart explains the change; neither is decoration.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="stats-grid">
+                <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">Events</span><span class="ag-badge is-brand">7D</span></div><div class="ag-stat-value">128.4k</div><div class="ag-stat-foot"><span class="ag-delta is-up">+18.2%</span><span>vs last week</span></div></div>
+                <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">Conversion</span></div><div class="ag-stat-value">4.8%</div><div class="ag-stat-foot"><span class="ag-delta is-up">+0.4</span><span>points</span></div></div>
+                <div class="ag-stat"><div class="ag-stat-head"><span class="ag-stat-label">Latency</span></div><div class="ag-stat-value">182ms</div><div class="ag-stat-foot"><span class="ag-delta is-down">−12ms</span><span>p95</span></div></div>
+              </div>
+              <div class="chart-specimen"><div class="chart-head"><div><span class="ag-kicker">EVENTS / 7 DAYS</span><b>128,420</b></div><div class="ag-cluster"><span class="ag-chip is-on">7D</span><span class="ag-chip">30D</span><span class="ag-chip">90D</span></div></div><svg class="ag-chart" viewBox="0 0 720 150" role="img" aria-label="Events trend"><g class="ag-chart-grid"><line x1="0" y1="30" x2="720" y2="30"></line><line x1="0" y1="70" x2="720" y2="70"></line><line x1="0" y1="110" x2="720" y2="110"></line></g><path class="ag-chart-area" d="M0 118 C45 112 70 100 105 104 S170 92 210 96 S275 80 315 84 S380 60 420 70 S485 54 525 58 S590 38 630 42 S690 22 720 26 V150 H0Z"></path><path class="ag-chart-line" d="M0 118 C45 112 70 100 105 104 S170 92 210 96 S275 80 315 84 S380 60 420 70 S485 54 525 58 S590 38 630 42 S690 22 720 26"></path><g class="ag-chart-axis"><text x="0" y="146">MON</text><text x="120" y="146">TUE</text><text x="240" y="146">WED</text><text x="360" y="146">THU</text><text x="480" y="146">FRI</text><text x="600" y="146">SAT</text><text x="690" y="146">SUN</text></g></svg></div>
+            </div>
+            <footer class="lab-plate-foot"><span>STAT = LABEL + VALUE + CHANGE</span><span>CHART = SHAPE</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>07.4</span> LIST, KEY–VALUE, TIMELINE</div>
+              <h3 class="lab-plate-title">Records outside a table.</h3>
+              <p class="lab-plate-desc">Use a list when rows are not comparable. Use key–value when the object is the subject. Use a timeline when order is the meaning.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="records-grid">
+                <div class="ag-list"><div class="ag-list-item"><span class="ag-avatar">A</span><div class="ag-list-copy"><div class="ag-list-title">Ada Lovelace</div><div class="ag-list-sub">Owner · ada@argent.io</div></div><span class="ag-badge">Admin</span></div><div class="ag-list-item"><span class="ag-avatar">G</span><div class="ag-list-copy"><div class="ag-list-title">Grace Hopper</div><div class="ag-list-sub">Editor · grace@argent.io</div></div><span class="ag-badge">Member</span></div></div>
+                <div class="ag-kv"><dt>Plan</dt><dd>Business</dd><dt>Seats</dt><dd>24 / 30</dd><dt>Region</dt><dd>us-east-1</dd><dt>Renewal</dt><dd>Nov 12, 2026</dd></div>
+              </div>
+              <div class="ag-timeline"><div class="ag-timeline-item"><span class="ag-timeline-dot is-brand"></span><div class="ag-timeline-copy"><span class="ag-timeline-title">Schema updated</span><span class="ag-timeline-sub">Ada · 2 minutes ago</span></div></div><div class="ag-timeline-item"><span class="ag-timeline-dot"></span><div class="ag-timeline-copy"><span class="ag-timeline-title">Source reconnected</span><span class="ag-timeline-sub">Grace · 18 minutes ago</span></div></div><div class="ag-timeline-item"><span class="ag-timeline-dot is-danger"></span><div class="ag-timeline-copy"><span class="ag-timeline-title">Export failed</span><span class="ag-timeline-sub">System · 1 hour ago</span></div></div></div>
+            </div>
+            <footer class="lab-plate-foot"><span>LIST = NON-COMPARABLE</span><span>KV = OBJECT</span><span>TIMELINE = ORDER</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           08 OVERLAYS
+           ================================================================== -->
+      <section class="lab-section" id="overlays" data-section="overlays">
+        <header class="lab-section-head">
+          <div class="lab-section-index">08</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Overlays / Temporary space</div>
+            <h2 class="lab-section-title">Borrowed attention,<br>returned quickly.</h2>
+            <p class="lab-section-lede">A tooltip explains. A popover offers. A dialog interrupts. A sheet gives context a temporary room. Use the lightest overlay that can do the job, and always return focus.</p>
+          </div>
+          <div class="lab-section-meta">03 PLATES<br>ESC CLOSES<br>FOCUS RETURNS</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>08.1</span> TOOLTIP, POPOVER, MENU</div>
+              <h3 class="lab-plate-title">The smallest possible interruption.</h3>
+              <p class="lab-plate-desc">Tooltip on hover. Popover on click. Menu for actions. Each surface is solid, top-lit and keyboard-dismissible; no glass, no mystery.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="overlay-board">
+                <div class="overlay-demo"><span class="ag-kicker">TOOLTIP</span><button class="ag-btn ag-btn-secondary" data-tooltip="A tooltip is a short explanation, not an action.">Hover for tooltip</button><span class="tooltip-specimen">A tooltip is a short explanation.</span></div>
+                <div class="overlay-demo"><span class="ag-kicker">POPOVER</span><button class="ag-btn ag-btn-secondary" data-popover="lab-menu">Open menu <span data-icon="chevron-down"></span></button><div class="ag-popover" id="lab-menu" hidden><div class="ag-menu"><div class="ag-menu-label">WORKSPACE</div><button class="ag-menu-item"><span data-icon="edit"></span>Rename<span class="ag-menu-shortcut">⌘R</span></button><button class="ag-menu-item"><span data-icon="copy"></span>Duplicate<span class="ag-menu-shortcut">⌘D</span></button><button class="ag-menu-item"><span data-icon="download"></span>Export…</button><div class="ag-menu-sep"></div><button class="ag-menu-item is-danger"><span data-icon="trash"></span>Delete workspace</button></div></div></div>
+                <div class="overlay-demo"><span class="ag-kicker">MENU / SPECIMEN</span><div class="menu-specimen"><div class="ag-menu"><div class="ag-menu-label">VIEW</div><button class="ag-menu-item is-active"><span data-icon="table"></span>Table<span class="ag-menu-shortcut">⌘1</span></button><button class="ag-menu-item"><span data-icon="chart"></span>Chart<span class="ag-menu-shortcut">⌘2</span></button><button class="ag-menu-item"><span data-icon="list"></span>List<span class="ag-menu-shortcut">⌘3</span></button><div class="ag-menu-sep"></div><button class="ag-menu-item"><span data-icon="settings"></span>Columns…</button></div></div></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>TOOLTIP = HOVER</span><span>POPOVER = CLICK</span><span>ESC RETURNS FOCUS</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>08.2</span> DIALOG</div>
+              <h3 class="lab-plate-title">Interrupt for a reason.</h3>
+              <p class="lab-plate-desc">A dialog owns the task. It has one primary, one quiet exit, and a consequence in its first sentence. The backdrop is a dim, not a blur.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="dialog-preview"><div class="dialog-preview-head"><div><span class="ag-kicker">DIALOG / 480 PX</span><b>Rename signal</b></div><span class="ag-btn ag-btn-icon ag-btn-quiet"><span data-icon="x"></span></span></div><div class="dialog-preview-body"><div class="ag-field"><label class="ag-label">Name</label><input class="ag-input" value="North star retention"></div></div><div class="dialog-preview-foot"><button class="ag-btn ag-btn-quiet">Cancel</button><button class="ag-btn ag-btn-primary">Save name</button></div></div>
+              <div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-sm" data-dialog="dlg-rename">Open rename dialog</button><button class="ag-btn ag-btn-danger-quiet ag-btn-sm" data-dialog="dlg-danger">Open destructive dialog</button></div>
+            </div>
+            <footer class="lab-plate-foot"><span>ONE PRIMARY</span><span>DIM 40%</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>08.3</span> SHEET &amp; COMMAND</div>
+              <h3 class="lab-plate-title">Context and intent.</h3>
+              <p class="lab-plate-desc">A sheet is a secondary space that arrives from the right. A command palette is a search field for the whole product.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="overlay-stack">
+                <div class="sheet-preview"><div class="sheet-preview-main"><span class="ag-kicker">PRIMARY</span><div class="split-lines"><i></i><i></i><i></i></div></div><div class="sheet-preview-side"><span class="ag-kicker">SHEET</span><div class="split-lines small"><i></i><i></i></div></div></div>
+                <div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-sm" data-sheet="sheet-detail">Open detail sheet</button><button class="ag-btn ag-btn-secondary ag-btn-sm" data-cmdk>Open command palette <span class="ag-kbd">⌘K</span></button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>SHEET = CONTEXT</span><span>CMD = INTENT</span></footer>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- ==================================================================
+           09 PATTERNS
+           ================================================================== -->
+      <section class="lab-section" id="patterns" data-section="patterns">
+        <header class="lab-section-head">
+          <div class="lab-section-index">09</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Patterns / Repeated decisions</div>
+            <h2 class="lab-section-title">The second time,<br>make it a pattern.</h2>
+            <p class="lab-section-lede">A pattern is a decision that has earned repetition: disclosure, dirty state, destructive confirmation, bulk work, onboarding. The components are the letters; the patterns are the sentences.</p>
+          </div>
+          <div class="lab-section-meta">05 PLATES<br>9 PATTERNS<br>RECOVERY FIRST</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>09.1</span> PROGRESSIVE DISCLOSURE</div>
+              <h3 class="lab-plate-title">Show the next thing, not everything.</h3>
+              <p class="lab-plate-desc">A summary is a promise. Opening it should not move the page under the user's pointer.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="lab-accordion-group">
+                <details class="lab-accordion" open><summary><span class="ag-kicker">01 / SOURCE</span><span>Production events</span><span data-icon="chevron-down"></span></summary><div class="lab-accordion-body"><p>Connected 12 days ago. 3.4M events. Last sync 2 minutes ago.</p><div class="ag-kv"><dt>Host</dt><dd>events.production</dd><dt>Owner</dt><dd>Ada</dd></div></div></details>
+                <details class="lab-accordion"><summary><span class="ag-kicker">02 / MAPPING</span><span>7 fields mapped</span><span data-icon="chevron-down"></span></summary><div class="lab-accordion-body"><p>Two fields still need a type. Keep the defaults if you are unsure.</p></div></details>
+                <details class="lab-accordion"><summary><span class="ag-kicker">03 / ACCESS</span><span>Workspace only</span><span data-icon="chevron-down"></span></summary><div class="lab-accordion-body"><p>Only members with the Analyst role can query this source.</p></div></details>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>SUMMARY = PROMISE</span><span>STABLE POINTER</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>09.2</span> UNSAVED CHANGES</div>
+              <h3 class="lab-plate-title">Make the state visible.</h3>
+              <p class="lab-plate-desc">Dirty is not an error. It is a fact. Keep the actions in place and never lose the draft on navigation.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="pattern-save">
+                <div class="pattern-save-copy"><span class="ag-save is-dirty"><span data-icon="dot"></span><span data-save-label>Unsaved changes</span></span><p>Your changes are kept locally until you publish.</p></div>
+                <div class="ag-cluster"><button class="ag-btn ag-btn-quiet ag-btn-sm" data-save-demo="dirty">Mark dirty</button><button class="ag-btn ag-btn-secondary ag-btn-sm" data-save-demo="saving">Saving…</button><button class="ag-btn ag-btn-primary ag-btn-sm" data-save-demo="saved">Save</button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>DIRTY / SAVING / SAVED</span><span>DRAFT KEPT</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>09.3</span> DESTRUCTIVE ACTION</div>
+              <h3 class="lab-plate-title">Ask once, with the consequence.</h3>
+              <p class="lab-plate-desc">A destructive dialog names the object, the scope and the recovery. Prefer undo for small things; confirm for irreversible things.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="danger-zone"><div class="danger-zone-copy"><span class="ag-kicker">DANGER ZONE</span><b>Delete this workspace</b><p>Removes 24 projects, 3,000 events and every saved view.</p></div><button class="ag-btn ag-btn-danger-quiet" data-dialog="dlg-danger">Delete workspace</button></div>
+              <div class="undo-line"><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Saved</span><span class="ag-help">Small changes can undo from the toast.</span><button class="ag-btn ag-btn-quiet ag-btn-sm" data-demo-toast="success">Undo example</button></div>
+            </div>
+            <footer class="lab-plate-foot"><span>CONFIRM = IRREVERSIBLE</span><span>UNDO = SMALL</span></footer>
+          </article>
+
+          <article class="lab-plate is-full">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>09.4</span> WIZARD</div>
+              <h3 class="lab-plate-title">One decision per step.</h3>
+              <p class="lab-plate-desc">A wizard is progressive disclosure with a progress model. The step title is the question; the footer is the commitment. Back is always available; the primary only moves forward.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="wizard-demo">
+                <div class="ag-steps"><div class="ag-step is-done"><span class="ag-step-marker"><span data-icon="check"></span></span><div class="ag-step-copy"><span class="ag-step-title">Source</span><span class="ag-step-sub">Connected</span></div></div><span class="ag-step-line"></span><div class="ag-step is-active"><span class="ag-step-marker">02</span><div class="ag-step-copy"><span class="ag-step-title">Mapping</span><span class="ag-step-sub">3 of 7 fields</span></div></div><span class="ag-step-line"></span><div class="ag-step"><span class="ag-step-marker">03</span><div class="ag-step-copy"><span class="ag-step-title">Review</span><span class="ag-step-sub">Pending</span></div></div><span class="ag-step-line"></span><div class="ag-step"><span class="ag-step-marker">04</span><div class="ag-step-copy"><span class="ag-step-title">Done</span><span class="ag-step-sub">Pending</span></div></div></div>
+                <div class="wizard-body">
+                  <div class="wizard-copy"><span class="ag-kicker">STEP 02 / MAPPING</span><h4>Match your fields.</h4><p>We found 7 fields. Three already match a known type; the rest can use the default.</p></div>
+                  <div class="ag-form-grid"><div class="ag-field"><label class="ag-label">event_id</label><input class="ag-input" value="string"><span class="ag-help is-success">Matched.</span></div><div class="ag-field"><label class="ag-label">occurred_at</label><input class="ag-input" value="timestamp"><span class="ag-help is-success">Matched.</span></div><div class="ag-field"><label class="ag-label">properties.plan</label><select class="ag-input ag-select"><option>Choose a type…</option><option>string</option><option>number</option></select></div><div class="ag-field"><label class="ag-label">properties.amount</label><select class="ag-input ag-select"><option>number</option><option>string</option></select></div></div>
+                </div>
+                <div class="wizard-foot"><button class="ag-btn ag-btn-quiet">Back</button><span class="ag-help">Step 2 of 4</span><span class="ag-spacer"></span><button class="ag-btn ag-btn-primary">Continue <span data-icon="arrow-right"></span></button></div>
+              </div>
+            </div>
+            <footer class="lab-plate-foot"><span>ONE QUESTION / STEP</span><span>BACK ALWAYS</span><span>PRIMARY FORWARD</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>09.5</span> PERMISSION &amp; BULK</div>
+              <h3 class="lab-plate-title">The missing thing is still a state.</h3>
+              <p class="lab-plate-desc">A permission gate explains the role, then offers the request. A bulk bar names the count and the exception.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="permission-card"><span class="ag-empty-icon"><span data-icon="lock"></span></span><div><b>Analyst access required</b><p>Ask Ada for the Analyst role to query production signals.</p></div><button class="ag-btn ag-btn-secondary ag-btn-sm">Request access</button></div>
+              <div class="bulk-inline is-large"><span><b>12</b> selected</span><span class="ag-help">3 cannot be moved</span><span class="ag-spacer"></span><button class="ag-btn ag-btn-quiet ag-btn-sm">Clear</button><button class="ag-btn ag-btn-secondary ag-btn-sm">Move…</button><button class="ag-btn ag-btn-danger-quiet ag-btn-sm">Remove</button></div>
+            </div>
+            <footer class="lab-plate-foot"><span>EXPLAIN THE ROLE</span><span>NAME THE COUNT</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>09.6</span> KEYBOARD</div>
+              <h3 class="lab-plate-title">A shortcut is a promise.</h3>
+              <p class="lab-plate-desc">Every shortcut has a visible command. Every command works without a pointer. Do not invent a second grammar.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="kbd-grid"><span>Command palette</span><span><span class="ag-kbd">⌘</span><span class="ag-kbd">K</span></span><span>Save</span><span><span class="ag-kbd">⌘</span><span class="ag-kbd">S</span></span><span>Publish</span><span><span class="ag-kbd">⌘</span><span class="ag-kbd">↵</span></span><span>Close overlay</span><span><span class="ag-kbd">Esc</span></span><span>Move selection</span><span><span class="ag-kbd">↑</span><span class="ag-kbd">↓</span></span></div>
+            </div>
+            <footer class="lab-plate-foot"><span>VISIBLE COMMANDS</span><span>NO MOUSE REQUIRED</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           10 MOTION
+           ================================================================== -->
+      <section class="lab-section" id="motion" data-section="motion">
+        <header class="lab-section-head">
+          <div class="lab-section-index">10</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Motion / How it behaves</div>
+            <h2 class="lab-section-title">Change should<br>feel inevitable.</h2>
+            <p class="lab-section-lede">Motion is feedback, not decoration. It confirms a press, carries a selection, or explains where a surface came from. It never delays the user and it never overshoots its destination.</p>
+          </div>
+          <div class="lab-section-meta">03 PLATES<br>150 / 320 / 380 MS<br>REDUCED MOTION</div>
+        </header>
+
+        <div class="lab-plate-grid">
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>10.1</span> TOKENS</div>
+              <h3 class="lab-plate-title">Three durations, one curve.</h3>
+              <p class="lab-plate-desc">Hover is a wash. Press is a scale. Selection is a settle. Everything else waits.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="motion-token-list">
+                <div><span class="ag-kicker">HOVER</span><b>150 ms</b><code>ease-out</code><span class="motion-line" style="--w:38%"></span></div>
+                <div><span class="ag-kicker">PRESS</span><b>140 ms</b><code>0.97 scale</code><span class="motion-line" style="--w:32%"></span></div>
+                <div><span class="ag-kicker">SETTLE</span><b>380 ms</b><code>cubic-bezier(.22,.8,.2,1)</code><span class="motion-line" style="--w:100%"></span></div>
+              </div>
+              <div class="motion-stage"><span class="motion-token" data-motion-demo></span><button class="ag-btn ag-btn-secondary ag-btn-sm" data-replay>Replay settle</button></div>
+            </div>
+            <footer class="lab-plate-foot"><span>NO OVERSHOOT</span><span>ONE CURVE</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>10.2</span> PANEL SWAP</div>
+              <h3 class="lab-plate-title">Neither frame is empty.</h3>
+              <p class="lab-plate-desc">The old content leaves while the new content arrives. A crossfade, not a relay.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="swap-demo" data-swap-demo><div class="swap-panel is-on"><span class="ag-kicker">VIEW A / OVERVIEW</span><div class="split-lines"><i></i><i></i><i></i></div></div><div class="swap-panel"><span class="ag-kicker">VIEW B / SIGNALS</span><div class="split-lines"><i></i><i></i><i></i></div></div></div>
+              <div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-sm" data-swap>Swap view</button><span class="ag-help">320 ms / drift 14 px</span></div>
+            </div>
+            <footer class="lab-plate-foot"><span>CROSSFADE</span><span>DRIFT 14</span></footer>
+          </article>
+
+          <article class="lab-plate">
+            <header class="lab-plate-head">
+              <div class="lab-plate-kicker"><span>10.3</span> REDUCED MOTION</div>
+              <h3 class="lab-plate-title">Ask first, then remove it.</h3>
+              <p class="lab-plate-desc">Keep the feedback, drop the travel. The system respects the preference and still confirms the action.</p>
+            </header>
+            <div class="lab-plate-stage">
+              <div class="prefers-motion"><label class="ag-switch"><input type="checkbox" data-motion-toggle checked><span>Motion on</span></label><span class="ag-help">Turn off to preview the reduced-motion path.</span></div>
+              <div class="reduced-demo"><span class="reduced-square"></span><button class="ag-btn ag-btn-secondary ag-btn-sm" data-replay>Replay</button></div>
+            </div>
+            <footer class="lab-plate-foot"><span>FEEDBACK WITHOUT TRAVEL</span><span>SYSTEM PREFERENCE</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           11 EXAMPLES
+           ================================================================== -->
+      <section class="lab-section" id="examples" data-section="examples">
+        <header class="lab-section-head">
+          <div class="lab-section-index">11</div>
+          <div class="lab-section-copy">
+            <div class="ag-kicker">Examples / Four compositions</div>
+            <h2 class="lab-section-title">The same system,<br>four different rooms.</h2>
+            <p class="lab-section-lede">The lab is the vocabulary. The examples are sentences. Each one uses the same tokens, controls and states, but changes the composition for its domain.</p>
+          </div>
+          <div class="lab-section-meta">04 EXAMPLES<br>ONE SYSTEM<br>NO VERTICAL LOCK-IN</div>
+        </header>
+        <div class="example-grid">
+          <a class="example-card" href="../pulse/index.html">
+            <div class="example-preview preview-pulse"><span class="pv-top"></span><span class="pv-rail"></span><span class="pv-stat"></span><span class="pv-stat"></span><span class="pv-stat"></span><span class="pv-table"></span></div>
+            <div class="example-copy"><span class="ag-kicker">01 / ANALYTICS</span><h4>Pulse</h4><p>A dense operations dashboard: stat cards, a chart, a selectable table and a context inspector.</p><span class="ag-link">Open example <span data-icon="arrow-right"></span></span></div>
+          </a>
+          <a class="example-card" href="../settings/index.html">
+            <div class="example-preview preview-settings"><span class="pv-top"></span><span class="pv-rail"></span><span class="pv-form"></span><span class="pv-form short"></span><span class="pv-toggle"></span></div>
+            <div class="example-copy"><span class="ag-kicker">02 / SETTINGS</span><h4>Atelier Settings</h4><p>Forms, roles, a sticky save bar and a danger zone — a page built around consequences.</p><span class="ag-link">Open example <span data-icon="arrow-right"></span></span></div>
+          </a>
+          <a class="example-card" href="../onboarding/index.html">
+            <div class="example-preview preview-onboarding"><span class="pv-step"></span><span class="pv-field"></span><span class="pv-field short"></span><span class="pv-button"></span></div>
+            <div class="example-copy"><span class="ag-kicker">03 / ONBOARDING</span><h4>Relay Import</h4><p>A four-step wizard: connect, map, review, finish. Progressive disclosure with a progress model.</p><span class="ag-link">Open example <span data-icon="arrow-right"></span></span></div>
+          </a>
+          <a class="example-card" href="../motion/index.html">
+            <div class="example-preview preview-motion"><span class="pv-canvas"></span><span class="pv-timeline"></span><span class="pv-clip"></span></div>
+            <div class="example-copy"><span class="ag-kicker">04 / DOMAIN TOOL</span><h4>Motion</h4><p>The original study: a recorder and editor workspace. Same system, a domain-specific composition.</p><span class="ag-link">Open example <span data-icon="arrow-right"></span></span></div>
+          </a>
+        </div>
+      </section>
+
+
+      <footer class="lab-footer">
+        <div class="lab-footer-mark"><span class="ag-mark"><span data-icon="mark"></span></span><span>ARGENT</span></div>
+        <p>A neutral interface system. Built as a manual, not a product. Read it, copy it, break it carefully.</p>
+        <div class="lab-footer-meta"><span>1.0</span><span>MIT</span><span>2026</span></div>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<!-- command palette -->
+<div class="ag-cmdk-scrim" data-cmdk-scrim>
+  <div class="ag-cmdk" role="dialog" aria-label="Command palette">
+    <div class="ag-cmdk-input"><span data-icon="search"></span><input type="text" placeholder="Search the manual…" aria-label="Search"><span class="ag-kbd">ESC</span></div>
+    <div class="ag-cmdk-list">
+      <button class="ag-cmdk-item is-active" data-cmd="foundations"><span data-icon="layers"></span><span>Foundations</span><span class="ag-menu-shortcut">01</span></button>
+      <button class="ag-cmdk-item" data-cmd="layout"><span data-icon="panel-left"></span><span>Layout &amp; sub-space</span><span class="ag-menu-shortcut">02</span></button>
+      <button class="ag-cmdk-item" data-cmd="actions"><span data-icon="mark"></span><span>Actions</span><span class="ag-menu-shortcut">03</span></button>
+      <button class="ag-cmdk-item" data-cmd="forms"><span data-icon="type"></span><span>Forms</span><span class="ag-menu-shortcut">04</span></button>
+      <button class="ag-cmdk-item" data-cmd="navigation"><span data-icon="grid"></span><span>Navigation</span><span class="ag-menu-shortcut">05</span></button>
+      <button class="ag-cmdk-item" data-cmd="feedback"><span data-icon="bell"></span><span>Feedback</span><span class="ag-menu-shortcut">06</span></button>
+      <button class="ag-cmdk-item" data-cmd="data"><span data-icon="table"></span><span>Data</span><span class="ag-menu-shortcut">07</span></button>
+      <button class="ag-cmdk-item" data-cmd="overlays"><span data-icon="layers"></span><span>Overlays</span><span class="ag-menu-shortcut">08</span></button>
+      <button class="ag-cmdk-item" data-cmd="patterns"><span data-icon="activity"></span><span>Patterns</span><span class="ag-menu-shortcut">09</span></button>
+      <button class="ag-cmdk-item" data-cmd="motion"><span data-icon="play"></span><span>Motion</span><span class="ag-menu-shortcut">10</span></button>
+      <button class="ag-cmdk-item" data-cmd="examples"><span data-icon="grid"></span><span>Examples</span><span class="ag-menu-shortcut">11</span></button>
+    </div>
+    <div class="ag-cmdk-foot"><span><span class="ag-kbd">↑</span><span class="ag-kbd">↓</span> navigate</span><span><span class="ag-kbd">↵</span> open</span><span class="ag-spacer"></span><span>ARGENT / 1.0</span></div>
+  </div>
+</div>
+
+<!-- shared overlays -->
+<dialog class="ag-dialog" id="dlg-rename" aria-labelledby="dlg-rename-title">
+  <div class="ag-dialog-head"><div><h2 class="ag-dialog-title" id="dlg-rename-title">Rename signal</h2><p class="ag-dialog-desc">The name appears in dashboards and exports. It can be changed later.</p></div><button class="ag-btn ag-btn-icon ag-btn-quiet" data-dialog-close aria-label="Close"><span data-icon="x"></span></button></div>
+  <div class="ag-dialog-body"><div class="ag-field"><label class="ag-label" for="rename-input">Name</label><input class="ag-input" id="rename-input" value="North star retention"><span class="ag-help">24 characters remaining</span></div></div>
+  <div class="ag-dialog-foot"><button class="ag-btn ag-btn-quiet" data-dialog-close>Cancel</button><button class="ag-btn ag-btn-primary" data-dialog-close>Save name</button></div>
+</dialog>
+
+<dialog class="ag-dialog" id="dlg-danger" aria-labelledby="dlg-danger-title">
+  <div class="ag-dialog-head"><div><h2 class="ag-dialog-title" id="dlg-danger-title">Delete this workspace?</h2><p class="ag-dialog-desc">This removes 24 projects, 3,000 events and every saved view. This cannot be undone.</p></div><button class="ag-btn ag-btn-icon ag-btn-quiet" data-dialog-close aria-label="Close"><span data-icon="x"></span></button></div>
+  <div class="ag-dialog-body"><div class="ag-banner is-danger"><span data-icon="alert-triangle"></span><div class="ag-banner-body"><strong>Permanent action</strong>The workspace and its data will be removed immediately.</div></div><div class="ag-field"><label class="ag-label" for="delete-confirm">Type <span class="ag-inline-code">delete</span> to confirm</label><input class="ag-input" id="delete-confirm" placeholder="delete"></div></div>
+  <div class="ag-dialog-foot"><button class="ag-btn ag-btn-quiet" data-dialog-close>Keep workspace</button><button class="ag-btn ag-btn-danger" data-dialog-close>Delete forever</button></div>
+</dialog>
+
+<div class="ag-scrim" data-scrim="sheet-detail"></div>
+<aside class="ag-sheet" id="sheet-detail" aria-label="Signal detail">
+  <div class="ag-sheet-head"><div><div class="ag-kicker">SECONDARY SPACE</div><h3 class="ag-sheet-title">Signal detail</h3></div><button class="ag-btn ag-btn-icon ag-btn-quiet" data-sheet-close="sheet-detail" aria-label="Close"><span data-icon="x"></span></button></div>
+  <div class="ag-stack"><div class="ag-banner is-info"><span data-icon="info"></span><div class="ag-banner-body"><strong>A sheet, not a page.</strong>On narrow screens the inspector becomes this sheet. The primary surface never changes size.</div></div><div class="ag-kv"><dt>Owner</dt><dd>Ada Lovelace</dd><dt>Window</dt><dd>Last 30 days</dd><dt>Source</dt><dd>events.production</dd><dt>Updated</dt><dd>4 minutes ago</dd></div></div>
+</aside>
+
+<script src="../../assets/argent.js"></script>
+<script src="lab.js"></script>
+</body>
+</html>

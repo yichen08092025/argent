@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argent Motion — 潮汐 · 产品演示</title>
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231B1D22'/%3E%3Cpath d='M20 40V24h14a10 10 0 0 1 0 20H20' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-mark" viewBox="0 0 18 18"><path d="M3.8 13.5 9 4.2l5.2 9.3M5.8 10.2h6.4"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 18 18"><path d="M2.5 5.2V4.4c0-.6.5-1.1 1.1-1.1h2.3c.4 0 .8.2 1 .5l.9 1.1h5.6c.6 0 1.1.5 1.1 1.1v7.4c0 .6-.5 1.1-1.1 1.1H3.6c-.6 0-1.1-.5-1.1-1.1V5.2Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 18 18"><path d="m4.2 9.3 3 3.1 6.6-7"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 18 18"><path d="M6.4 4.6 2.9 8.1l3.5 3.5"/><path d="M2.9 8.1h6.4c3.1 0 5.3 1.8 5.3 4.5"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 18 18"><path d="m11.6 4.6 3.5 3.5-3.5 3.5"/><path d="M15.1 8.1H8.7c-3.1 0-5.3 1.8-5.3 4.5"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 18 18"><path d="M9 2.2 10.2 6 14 7.3l-3.8 1.2L9 12.4 7.8 8.5 4 7.3 7.8 6 9 2.2Z"/><path d="M4 12.3v2.8M2.6 13.7h2.8"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 18 18"><circle cx="9" cy="9" r="3.1"/><path d="M9 1.8v1.6M9 14.6v1.6M1.8 9h1.6M14.6 9h1.6M3.9 3.9l1.1 1.1M13 13l1.1 1.1M14.1 3.9 13 5M5 13l-1.1 1.1"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 18 18"><path d="M11.2 2.5a6.8 6.8 0 1 0 4.3 8.6 5.5 5.5 0 0 1-4.3-8.6Z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 18 18"><circle cx="9" cy="9" r="2.4"/><path d="M9 2.3v2M9 13.7v2M2.3 9h2M13.7 9h2M4.3 4.3l1.4 1.4M12.3 12.3l1.4 1.4M13.7 4.3l-1.4 1.4M5.7 12.3l-1.4 1.4"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 18 18"><path d="M3.2 5.1h11.6M6.2 5.1V3.4h5.6v1.7M5.1 5.1l.7 9.4h6.4l.7-9.4M7.5 7.8v4.4M10.5 7.8v4.4"/></symbol>
+  <symbol id="i-share" viewBox="0 0 18 18"><path d="M9 2.5v7.8M6.1 5.4 9 2.5l2.9 2.9M3.2 9.8v4.6h11.6V9.8"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 18 18"><path d="m5.5 7.2 3.5 3.6 3.5-3.6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 18 18"><path d="M6.6 4.3 13.8 9l-7.2 4.7V4.3Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 18 18"><path d="M6.4 4.2v9.6M11.6 4.2v9.6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 18 18"><path d="M10.8 4.5 6.4 9l4.4 4.5M4.1 4.5v9"/></symbol>
+  <symbol id="i-forward" viewBox="0 0 18 18"><path d="M7.2 4.5 11.6 9l-4.4 4.5M13.9 4.5v9"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 18 18"><circle cx="4.6" cy="12.8" r="2.1"/><circle cx="4.6" cy="5.2" r="2.1"/><path d="M6.3 11.5 14.5 3.2M6.3 6.5 14.5 14.8"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 18 18"><path d="M9 3.4v11.2M3.4 9h11.2"/></symbol>
+  <symbol id="i-crop" viewBox="0 0 18 18"><path d="M5.4 2.2v10.4h10.4M2.2 5.4h10.4v10.4"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 18 18"><path d="M3 6.4V3h3.4M14.9 6.4V3h-3.4M3 11.6V15h3.4M14.9 11.6V15h-3.4"/></symbol>
+  <symbol id="i-magnet" viewBox="0 0 18 18"><path d="M4 3.2v6.2a5 5 0 0 0 10 0V3.2M4 7.9h3.1M10.9 7.9H14"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 18 18"><path d="M1.9 9S4.7 4.6 9 4.6 16.1 9 16.1 9 13.3 13.4 9 13.4 1.9 9 1.9 9Z"/><circle cx="9" cy="9" r="2.1"/></symbol>
+  <symbol id="i-film" viewBox="0 0 18 18"><rect x="2.3" y="4" width="13.4" height="10" rx="1.8"/><path d="M5.2 4v10M12.8 4v10M2.3 7.2h2.9M2.3 10.8h2.9M12.8 7.2h2.9M12.8 10.8h2.9"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 18 18"><path d="M2.2 9h1.1M5.3 6.6v4.8M8.15 3.9v10.2M11 6.1v5.8M13.85 4.9v8.2M16.1 8.2v1.6"/></symbol>
+  <symbol id="i-marker" viewBox="0 0 18 18"><path d="M5.2 15V3.4h7.4l-1.8 3.4 1.8 3.4H5.2"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 18 18"><circle cx="8" cy="8" r="4.7"/><path d="m11.5 11.5 3.6 3.6M6.2 8h3.6M8 6.2v3.6"/></symbol>
+  <symbol id="i-scene" viewBox="0 0 18 18"><rect x="2.7" y="3.3" width="12.6" height="11.4" rx="2"/><path d="M5.5 6.2h7M5.5 9h7M5.5 11.8h4.2"/></symbol>
+  <symbol id="i-opening" viewBox="0 0 18 18"><path d="M3 12.8c2.2-.1 3.6-1 4.3-2.7.7-1.7 1.5-4.6 4.7-4.9"/><path d="M12.2 2.4 13 5l2.6.8L13 6.6l-.8 2.6-.8-2.6L8.8 5.8 11.4 5l.8-2.6Z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 18 18"><circle cx="9" cy="9" r="5.4"/><circle cx="9" cy="9" r="1.2"/><path d="M9 1.8v3M9 13.2v3M1.8 9h3M13.2 9h3"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 18 18"><path d="M3.4 2.4 13.2 8.6l-4.1.5 2.2 5-2.5 1.1-2.2-5-3.2 2.7V2.4Z"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 18 18"><rect x="1.9" y="4.8" width="10.4" height="8.6" rx="2"/><path d="m12.3 7.2 3.8-2.1v7.8l-3.8-2.1M5.6 7.4h3"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 18 18"><path d="M2.3 6.8h2.4l3.4-2.9v10.2L4.7 11.2H2.3V6.8Z"/><path d="M11 6.7a3.2 3.2 0 0 1 0 4.6M13.2 4.4a6.3 6.3 0 0 1 0 9.2"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 18 18"><rect x="6.6" y="2.2" width="4.8" height="8.8" rx="2.4"/><path d="M4.2 8.7a4.8 4.8 0 0 0 9.6 0M9 13.5v2.3M6.4 15.8h5.2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 18 18"><circle cx="9" cy="9" r="6.7"/><path d="M9 8.2v4.2M9 5.4v.2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 18 18"><path d="m5 5 8 8M13 5l-8 8"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 18 18"><rect x="2.6" y="2.6" width="4.4" height="4.4" rx="1"/><rect x="11" y="2.6" width="4.4" height="4.4" rx="1"/><rect x="2.6" y="11" width="4.4" height="4.4" rx="1"/><rect x="11" y="11" width="4.4" height="4.4" rx="1"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 18 18"><rect x="2.5" y="3" width="13" height="12" rx="2"/><path d="M7.4 3v12"/></symbol>
+  <symbol id="i-image" viewBox="0 0 18 18"><rect x="2.5" y="3.2" width="13" height="11.6" rx="2"/><circle cx="6.2" cy="6.8" r="1.1"/><path d="m3.6 12.6 3.5-3.3 2.6 2.3 2.4-2.1 2.5 2.2"/></symbol>
+  <symbol id="i-dynamic" viewBox="0 0 18 18"><path d="M2.4 11.4c1.4-4.3 3.6-6.3 6.5-6.1 3 .2 3.3 4.1 6.7 3.4"/><path d="M2.4 14.2h13.2"/></symbol>
+  <symbol id="i-swatch" viewBox="0 0 18 18"><circle cx="9" cy="9" r="6.7"/><path d="M9 2.3v13.4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 18 18"><path d="M3.2 9h11.4M10.2 4.6 14.6 9l-4.4 4.4"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 18 18"><rect x="3.7" y="3.3" width="10.6" height="7.6" rx="1.2"/><path d="M2.2 13.1h13.6l-1.1 1.8H3.3l-1.1-1.8Z"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 18 18"><circle cx="9" cy="9" r="3.1"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 18 18"><path d="M6.4 9.4V4.7a1.2 1.2 0 0 1 2.4 0v4M8.8 8.7V3.9a1.2 1.2 0 0 1 2.4 0v4.8M11.2 8.7V5.9a1.2 1.2 0 0 1 2.4 0v5.5c0 2.7-1.9 4.6-4.6 4.6-2 0-3.1-1-4-2.7L3.4 10.4c-.5-.9.4-1.9 1.3-1.4l1.7 1.1"/></symbol>
+  <symbol id="i-mirror" viewBox="0 0 18 18"><path d="M9 2.4v13.2M3.1 4.4h3.6v9.2H3.1zM11.3 4.4h3.6v9.2h-3.6z" stroke-dasharray="2 2"/></symbol>
+  <symbol id="i-noise" viewBox="0 0 18 18"><path d="M3 6.2h2.4M7.3 3.6v4.2M12.6 6.2H15M4.4 12.8h9.2M9 10.4v4.8"/><circle cx="7.3" cy="10.8" r=".7"/></symbol>
+  <symbol id="i-more" viewBox="0 0 18 18"><circle cx="4.2" cy="9" r=".9"/><circle cx="9" cy="9" r=".9"/><circle cx="13.8" cy="9" r=".9"/></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 18 18"><rect x="1.9" y="4.6" width="14.2" height="8.8" rx="1.8"/><path d="M4.6 7.2h.4M7.3 7.2h.4M10 7.2h.4M12.7 7.2h.4M5.6 10.4h6.8"/></symbol>
+</svg>
+
+<div class="app" id="app">
+  <header class="titlebar">
+    <div class="title-left">
+      <div class="traffic" aria-hidden="true"><i class="t-close"></i><i class="t-min"></i><i class="t-max"></i></div>
+      <div class="brand" aria-label="Graphite Studio">
+        <span class="brand-mark"><svg class="ic"><use href="#i-mark"/></svg></span>
+        <span class="brand-word">ARGENT</span>
+      </div>
+      <span class="v-rule"></span>
+      <button class="project-chip" id="projectChip" title="项目">
+        <svg class="ic"><use href="#i-folder"/></svg>
+        <span>潮汐 · 产品演示</span>
+        <svg class="ic chev"><use href="#i-chevron"/></svg>
+      </button>
+      <span class="save-state" id="saveState"><svg class="ic"><use href="#i-check"/></svg><span>已保存</span></span>
+      <span class="v-rule"></span>
+      <button class="icon-btn" id="undoBtn" title="撤销（⌘Z）" aria-label="撤销"><svg class="ic"><use href="#i-undo"/></svg></button>
+      <button class="icon-btn" id="redoBtn" title="重做（⌘⇧Z）" aria-label="重做"><svg class="ic"><use href="#i-redo"/></svg></button>
+    </div>
+    <div class="title-right">
+      <a class="tool-btn" href="../lab/index.html" title="Argent field manual"><span>Field manual</span></a>
+      <button class="tool-btn" id="presetBtn" title="保存或复用完整场景配置">
+        <svg class="ic"><use href="#i-sparkle"/></svg><span>场景预设</span>
+      </button>
+      <button class="icon-btn" id="themeBtn" title="切换外观（D）" aria-label="切换明暗外观">
+        <svg class="ic icon-sun"><use href="#i-sun"/></svg>
+        <svg class="ic icon-moon"><use href="#i-moon"/></svg>
+      </button>
+      <button class="icon-btn" id="toolsBtn" title="工具面板" aria-label="打开工具面板"><svg class="ic"><use href="#i-layout"/></svg></button>
+      <button class="icon-btn" id="settingsBtn" title="设置（⌘,）" aria-label="设置"><svg class="ic"><use href="#i-gear"/></svg></button>
+      <button class="icon-btn" id="trashBtn" title="删除当前项目…" aria-label="删除当前项目"><svg class="ic"><use href="#i-trash"/></svg></button>
+      <span class="v-rule"></span>
+      <button class="primary-btn" id="exportBtn">
+        <svg class="ic"><use href="#i-share"/></svg><span>导出</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <section class="stage" id="stage" aria-label="画面预览">
+      <div class="stage-light" aria-hidden="true"></div>
+      <div class="stage-dots" aria-hidden="true"></div>
+      <div class="stage-vignette" aria-hidden="true"></div>
+
+      <div class="canvas-wrap">
+        <div class="canvas wallpaper-deep" id="canvas" data-wallpaper="deep" tabindex="0" aria-label="画布预览，点击选中">
+          <div class="canvas-pattern" aria-hidden="true"></div>
+          <div class="canvas-noise" aria-hidden="true"></div>
+          <div class="rec-window" id="recWindow" data-frame="browser">
+            <div class="browser-bar">
+              <span class="mini-traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="url-pill"><span class="url-lock">◦</span>tide.studio/journal/03</span>
+              <span class="browser-tools" aria-hidden="true"><i></i><i></i></span>
+            </div>
+            <div class="site">
+              <header class="site-nav">
+                <span class="wordmark">TIDE</span>
+                <nav aria-label="站点导航"><span class="nav-on">Journal</span><span>Field notes</span><span>About</span></nav>
+                <span class="subscribe">Subscribe <i>↗</i></span>
+              </header>
+              <main class="site-main">
+                <div class="copy">
+                  <div class="eyebrow"><span>FIELD NOTES</span><span class="eyebrow-num">03</span></div>
+                  <h1>The quiet<br><em>coast.</em></h1>
+                  <p>Nine days on a borrowed stretch of shoreline, listening to what the water does when no one is asking.</p>
+                  <span class="read-link">Read the story <i>→</i></span>
+                </div>
+                <figure class="coast">
+                  <div class="coast-art">
+                    <svg viewBox="0 0 420 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#F7EEDC"/>
+                          <stop offset=".52" stop-color="#F2DDC1"/>
+                          <stop offset="1" stop-color="#EBC8A5"/>
+                        </linearGradient>
+                        <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#4C8F86"/>
+                          <stop offset="1" stop-color="#1D534D"/>
+                        </linearGradient>
+                        <radialGradient id="sunG">
+                          <stop offset="0" stop-color="#FFE7C4" stop-opacity=".95"/>
+                          <stop offset=".55" stop-color="#FFDDB2" stop-opacity=".38"/>
+                          <stop offset="1" stop-color="#FFDDB2" stop-opacity="0"/>
+                        </radialGradient>
+                        <filter id="haze" x="-20%" y="-20%" width="140%" height="140%">
+                          <feGaussianBlur stdDeviation="7"/>
+                        </filter>
+                      </defs>
+                      <rect width="420" height="320" fill="url(#skyG)"/>
+                      <circle cx="306" cy="98" r="96" fill="url(#sunG)"/>
+                      <circle cx="306" cy="98" r="25" fill="#F6C191"/>
+                      <path d="M0 178 70 134l58 24 54-34 62 34 76-32 100 34v160H0Z" fill="#367066" opacity=".32" filter="url(#haze)"/>
+                      <path d="M0 204c62-28 106-14 150 0 52 17 96 6 144-10 48-16 88-8 126 6v120H0Z" fill="#245B53"/>
+                      <path d="M0 238c56-22 96-10 138 4 48 16 86-2 128-16 56-19 108-16 154-2v96H0Z" fill="url(#seaG)"/>
+                      <g fill="none" stroke="#C8E6DC" stroke-width="1.1" opacity=".42">
+                        <path d="M14 258c44-6 78-3 112 4s66 3 98-4 62-4 92 2 58 4 92-2"/>
+                        <path d="M0 274c50-5 86-1 120 5s64 2 96-5 66-3 96 3 58 3 108-4"/>
+                        <path d="M18 291c42-4 76 0 110 4s64 2 94-3 60-2 88 2 52 2 90-2"/>
+                      </g>
+                      <path d="M0 320V254c34-9 62 1 84 18 20 16 36 32 54 48Z" fill="#123A34"/>
+                      <path d="M0 282c22-8 40-4 55 6" fill="none" stroke="#2D5A4F" stroke-width="8" stroke-linecap="round"/>
+                      <path d="M420 320V246c-36-10-68 2-94 22-22 17-41 36-58 52Z" fill="#0E352F"/>
+                      <g fill="none" stroke="#7FA79A" stroke-width=".9" opacity=".55">
+                        <path d="M318 286c8-14 18-24 32-30M330 300c6-11 15-20 27-26M345 310c5-9 12-16 22-21"/>
+                        <path d="M46 296c-5-9-12-15-21-19M56 306c-4-8-10-13-18-17"/>
+                      </g>
+                      <path d="M252 84c5-4 10-4 15 0 5-4 10-4 15 0" fill="none" stroke="#92705B" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+                    </svg>
+                  </div>
+                  <figcaption><span>Big Sur, California</span><span>06:12</span></figcaption>
+                </figure>
+              </main>
+              <footer class="site-foot"><span>ISSUE 03 · AUTUMN</span><span>35mm · natural light</span></footer>
+            </div>
+          </div>
+          <div class="canvas-selection" aria-hidden="true"><i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i></div>
+        </div>
+      </div>
+
+      <div class="hud island" aria-label="画布工具与播放">
+        <button class="hud-btn" id="ratioBtn" title="画布比例"><span id="ratioLabel">16:9</span> <svg class="ic chev"><use href="#i-chevron"/></svg></button>
+        <button class="hud-btn" id="cropBtn" title="裁切画面" aria-label="裁切画面"><svg class="ic"><use href="#i-crop"/></svg></button>
+        <span class="hud-rule"></span>
+        <button class="hud-btn" title="添加到画面" aria-label="添加到画面"><svg class="ic"><use href="#i-plus"/></svg></button>
+        <button class="hud-btn" title="预览选项" aria-label="预览选项"><svg class="ic"><use href="#i-fit"/></svg></button>
+        <span class="hud-rule"></span>
+        <button class="hud-btn" id="prevFrame" title="上一帧" aria-label="上一帧"><svg class="ic"><use href="#i-back"/></svg></button>
+        <button class="play-btn" id="playBtn" title="播放（空格）" aria-label="播放">
+          <svg class="ic play-icon"><use href="#i-play"/></svg>
+          <svg class="ic pause-icon"><use href="#i-pause"/></svg>
+        </button>
+        <button class="hud-btn" id="nextFrame" title="下一帧" aria-label="下一帧"><svg class="ic"><use href="#i-forward"/></svg></button>
+        <span class="timecode" id="hudTime"><b>00:06.12</b><span>/ 00:24.00</span></span>
+      </div>
+    </section>
+
+    <aside class="inspector" id="inspector" aria-label="检查器">
+      <div class="inspector-tabs" role="tablist" aria-label="编辑工具">
+        <span class="tab-pill" id="tabPill" aria-hidden="true"></span>
+        <button class="tab is-active" role="tab" data-tab="frame" aria-selected="true" aria-controls="panel-frame" id="tab-frame">
+          <svg class="ic"><use href="#i-scene"/></svg><span class="tab-label">画面</span>
+        </button>
+        <button class="tab" role="tab" data-tab="opening" aria-selected="false" aria-controls="panel-opening" id="tab-opening" tabindex="-1">
+          <svg class="ic"><use href="#i-opening"/></svg><span class="tab-label">开场</span>
+        </button>
+        <button class="tab" role="tab" data-tab="zoom" aria-selected="false" aria-controls="panel-zoom" id="tab-zoom" tabindex="-1">
+          <svg class="ic"><use href="#i-target"/></svg><span class="tab-label">运镜</span>
+        </button>
+        <button class="tab" role="tab" data-tab="cursor" aria-selected="false" aria-controls="panel-cursor" id="tab-cursor" tabindex="-1">
+          <svg class="ic"><use href="#i-cursor"/></svg><span class="tab-label">光标</span>
+        </button>
+        <button class="tab" role="tab" data-tab="camera" aria-selected="false" aria-controls="panel-camera" id="tab-camera" tabindex="-1">
+          <svg class="ic"><use href="#i-camera"/></svg><span class="tab-label">摄像头</span>
+        </button>
+        <button class="tab" role="tab" data-tab="audio" aria-selected="false" aria-controls="panel-audio" id="tab-audio" tabindex="-1">
+          <svg class="ic"><use href="#i-speaker"/></svg><span class="tab-label">声音</span>
+        </button>
+      </div>
+
+      <div class="inspector-head" id="inspectorHead">
+        <h2 class="page-title" id="pageTitle">画面</h2>
+        <span class="scope-pill" id="pageScope">全片</span>
+      </div>
+
+      <div class="frame-nav" id="frameNav">
+        <div class="segmented" role="tablist" aria-label="画面子页">
+          <span class="seg-thumb" id="segThumb"></span>
+          <button class="seg is-on" data-sub="background" role="tab" aria-selected="true">背景</button>
+          <button class="seg" data-sub="layout" role="tab" aria-selected="false">布局</button>
+          <button class="seg" data-sub="mockup" role="tab" aria-selected="false">样机</button>
+        </div>
+      </div>
+
+      <div class="inspector-scroll" id="inspectorScroll">
+        <div class="panels">
+          <section class="panel is-active" id="panel-frame" data-panel="frame" role="tabpanel" aria-labelledby="tab-frame">
+            <div class="subpanel is-active" data-subpanel="background">
+              <div class="preview-card">
+                <div class="preview-mini">
+                  <div class="mini-canvas wallpaper-deep" id="miniCanvas">
+                    <div class="mini-window"></div>
+                  </div>
+                </div>
+                <div class="preview-meta">
+                  <div><span class="meta-title">背景预览</span><span class="meta-sub">16:9 · 深海</span></div>
+                  <button class="quiet-btn" id="replaceBg">替换…</button>
+                </div>
+              </div>
+
+              <section class="insp-section">
+                <div class="insp-caption"><span>背景素材</span></div>
+                <div class="tile">
+                  <div class="source-row" role="group" aria-label="背景类型">
+                    <button class="source-tile is-on" data-source="gradient"><svg class="ic"><use href="#i-swatch"/></svg><span>渐变</span></button>
+                    <button class="source-tile" data-source="grid"><svg class="ic"><use href="#i-grid"/></svg><span>网格</span></button>
+                    <button class="source-tile" data-source="motion"><svg class="ic"><use href="#i-dynamic"/></svg><span>动态</span></button>
+                    <button class="source-tile" data-source="custom"><svg class="ic"><use href="#i-image"/></svg><span>自定</span></button>
+                  </div>
+                  <div class="swatch-grid" id="swatchGrid" role="group" aria-label="背景样式">
+                    <button class="swatch is-on" data-wallpaper="deep" data-name="深海"><span class="swatch-art wp-deep"></span><span class="swatch-name">深海</span></button>
+                    <button class="swatch" data-wallpaper="dusk" data-name="暮光"><span class="swatch-art wp-dusk"></span><span class="swatch-name">暮光</span></button>
+                    <button class="swatch" data-wallpaper="graphite" data-name="石墨"><span class="swatch-art wp-graphite"></span><span class="swatch-name">石墨</span></button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="insp-section">
+                <div class="insp-caption"><span>图案</span></div>
+                <div class="tile">
+                  <div class="slider-row">
+                    <label for="patternScale">图案大小</label>
+                    <output id="patternScaleOut">1×</output>
+                    <input id="patternScale" type="range" min="0.5" max="2" step="0.1" value="1" style="--p:33%">
+                  </div>
+                  <div class="slider-row">
+                    <label for="patternOpacity">不透明度</label>
+                    <output id="patternOpacityOut">100%</output>
+                    <input id="patternOpacity" type="range" min="0" max="100" step="1" value="100" style="--p:100%">
+                  </div>
+                </div>
+              </section>
+
+              <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>背景只作用于画布，不改变录制内容。视频原生像素始终按原样保留。</span></div>
+            </div>
+
+            <div class="subpanel" data-subpanel="layout">
+              <section class="insp-section">
+                <div class="insp-caption"><span>画布比例</span></div>
+                <div class="tile">
+                  <div class="quad" role="group" aria-label="画布比例">
+                    <button class="quad-tile is-on" data-ratio="16:9"><span class="ratio-glyph r-16-9"></span><span>16:9</span></button>
+                    <button class="quad-tile" data-ratio="9:16"><span class="ratio-glyph r-9-16"></span><span>9:16</span></button>
+                    <button class="quad-tile" data-ratio="1:1"><span class="ratio-glyph r-1-1"></span><span>1:1</span></button>
+                    <button class="quad-tile" data-ratio="4:3"><span class="ratio-glyph r-4-3"></span><span>4:3</span></button>
+                  </div>
+                </div>
+              </section>
+              <section class="insp-section">
+                <div class="insp-caption"><span>构图</span></div>
+                <div class="tile">
+                  <div class="slider-row">
+                    <label for="canvasPad">画布留白</label>
+                    <output id="canvasPadOut">6%</output>
+                    <input id="canvasPad" type="range" min="0" max="16" step="1" value="6" style="--p:37.5%">
+                  </div>
+                  <div class="slider-row">
+                    <label for="windowRadius">窗口圆角</label>
+                    <output id="windowRadiusOut">10 px</output>
+                    <input id="windowRadius" type="range" min="0" max="28" step="1" value="10" style="--p:35.7%">
+                  </div>
+                  <div class="slider-row">
+                    <label for="windowShadow">窗口阴影</label>
+                    <output id="windowShadowOut">柔和</output>
+                    <input id="windowShadow" type="range" min="0" max="2" step="1" value="1" style="--p:50%">
+                  </div>
+                </div>
+              </section>
+              <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>改变比例后，预览会重新居中；导出的画面与这里的构图一致。</span></div>
+            </div>
+
+            <div class="subpanel" data-subpanel="mockup">
+              <section class="insp-section">
+                <div class="insp-caption"><span>样机样式</span></div>
+                <div class="tile">
+                  <div class="tri" role="group" aria-label="样机样式">
+                    <button class="tri-tile" data-frame="none"><svg class="ic"><use href="#i-scene"/></svg><span>无</span></button>
+                    <button class="tri-tile is-on" data-frame="browser"><svg class="ic"><use href="#i-film"/></svg><span>浏览器</span></button>
+                    <button class="tri-tile" data-frame="laptop"><svg class="ic"><use href="#i-laptop"/></svg><span>笔记本</span></button>
+                  </div>
+                </div>
+              </section>
+              <section class="insp-section">
+                <div class="insp-caption"><span>细节</span></div>
+                <div class="tile">
+                  <div class="switch-row"><span>显示地址栏</span><button class="switch is-on" id="urlSwitch" role="switch" aria-checked="true" aria-label="显示地址栏"><i></i></button></div>
+                  <div class="switch-row"><span>窗口投影</span><button class="switch is-on" id="shadowSwitch" role="switch" aria-checked="true" aria-label="窗口投影"><i></i></button></div>
+                </div>
+              </section>
+              <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>样机只是外框，不会裁切或重绘录制的画面。</span></div>
+            </div>
+          </section>
+
+          <section class="panel" id="panel-opening" data-panel="opening" role="tabpanel" aria-labelledby="tab-opening" hidden>
+            <section class="insp-section">
+              <div class="tile">
+                <div class="switch-row"><div><div class="row-title">启用开场</div><div class="row-sub">从第一帧轻轻推入画面</div></div><button class="switch is-on" id="openingSwitch" role="switch" aria-checked="true" aria-label="启用开场"><i></i></button></div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="insp-caption"><span>动效</span></div>
+              <div class="tile">
+                <div class="tri" role="group" aria-label="开场动效">
+                  <button class="tri-tile is-on" data-opening="fade"><svg class="ic"><use href="#i-swatch"/></svg><span>淡入</span></button>
+                  <button class="tri-tile" data-opening="lift"><svg class="ic"><use href="#i-arrow"/></svg><span>上浮</span></button>
+                  <button class="tri-tile" data-opening="focus"><svg class="ic"><use href="#i-target"/></svg><span>聚焦</span></button>
+                </div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="insp-caption"><span>时长</span></div>
+              <div class="tile">
+                <div class="slider-row">
+                  <label for="openingDuration">开场时长</label>
+                  <output id="openingDurationOut">0.8 s</output>
+                  <input id="openingDuration" type="range" min="0.2" max="2" step="0.1" value="0.8" style="--p:33%">
+                </div>
+              </div>
+            </section>
+            <button class="wide-soft" id="previewOpening"><svg class="ic"><use href="#i-play"/></svg><span>预览开场</span></button>
+            <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>开场只影响成片的第一段，时间线起点不会移动。</span></div>
+          </section>
+
+          <section class="panel" id="panel-zoom" data-panel="zoom" role="tabpanel" aria-labelledby="tab-zoom" hidden>
+            <div class="segmented narrow" role="tablist" aria-label="运镜方式">
+              <span class="seg-thumb" id="zoomSegThumb"></span>
+              <button class="seg is-on" data-zoommode="auto" role="tab" aria-selected="true">自动跟随</button>
+              <button class="seg" data-zoommode="manual" role="tab" aria-selected="false">手动定位</button>
+            </div>
+
+            <div class="focus-card">
+              <div class="focus-stage">
+                <div class="focus-art">
+                  <div class="mini-canvas wallpaper-deep"><div class="mini-window"></div></div>
+                </div>
+                <div class="focus-ring" id="focusRing"><span></span></div>
+              </div>
+              <div class="axis-row">
+                <label>X <output id="focusX">50%</output></label>
+                <label>Y <output id="focusY">50%</output></label>
+                <button class="mini-link" id="focusReset">居中</button>
+              </div>
+            </div>
+
+            <section class="insp-section">
+              <div class="insp-caption"><span>缩放曲线</span></div>
+              <div class="tile curve-tile">
+                <div class="curve-head"><span class="curve-mode">进入 → 保持 → 退出</span><span class="curve-swatch"><i></i>缩放</span></div>
+                <svg class="curve" viewBox="0 0 288 116" aria-hidden="true">
+                  <g class="curve-grid">
+                    <path d="M14 18h260M14 44h260M14 70h260M14 96h260"/>
+                    <path d="M14 18v78M79 18v78M144 18v78M209 18v78M274 18v78"/>
+                  </g>
+                  <path class="curve-line" id="curveLine" d="M14 96C40 96 48 26 88 26S150 26 186 26 236 96 274 96"/>
+                  <g class="curve-points"><circle cx="14" cy="96" r="4"/><circle cx="88" cy="26" r="4"/><circle cx="186" cy="26" r="4"/><circle cx="274" cy="96" r="4"/></g>
+                  <g class="curve-axis"><text x="14" y="112">进入</text><text x="126" y="112">保持</text><text x="256" y="112">退出</text></g>
+                </svg>
+                <div class="knobs">
+                  <div class="knob-group">
+                    <div class="knob" id="knobZoom" data-min="1" data-max="2.5" data-step="0.05" data-value="1.35" data-suffix="×" tabindex="0" role="slider" aria-label="放大倍率" aria-valuemin="1" aria-valuemax="2.5" aria-valuenow="1.35"><span class="k-val">1.35×</span></div>
+                    <span class="k-label">放大</span>
+                  </div>
+                  <div class="knob-group">
+                    <div class="knob" id="knobIn" data-min="0.2" data-max="2" data-step="0.05" data-value="0.7" data-suffix="s" tabindex="0" role="slider" aria-label="进入时长" aria-valuemin="0.2" aria-valuemax="2" aria-valuenow="0.7"><span class="k-val">0.7s</span></div>
+                    <span class="k-label">进入</span>
+                  </div>
+                  <div class="knob-group">
+                    <div class="knob" id="knobOut" data-min="0.2" data-max="2" data-step="0.05" data-value="0.7" data-suffix="s" tabindex="0" role="slider" aria-label="退出时长" aria-valuemin="0.2" aria-valuemax="2" aria-valuenow="0.7"><span class="k-val">0.7s</span></div>
+                    <span class="k-label">退出</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <button class="wide-soft" id="applyZoom"><svg class="ic"><use href="#i-sparkle"/></svg><span>将倍率应用到全部缩放</span></button>
+            <section class="insp-section">
+              <div class="insp-caption"><span>片段区间</span></div>
+              <div class="range-card">
+                <div><span class="range-label">入点</span><b id="zoomIn">00:03.40</b></div>
+                <div><span class="range-label">出点</span><b id="zoomOut">00:08.20</b></div>
+                <div><span class="range-label">时长</span><b>4.80 s</b></div>
+              </div>
+            </section>
+            <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>自动跟随会读取录屏中的光标轨迹，再平滑成一段缩放。关闭后只保留手动关键帧。</span></div>
+          </section>
+
+          <section class="panel" id="panel-cursor" data-panel="cursor" role="tabpanel" aria-labelledby="tab-cursor" hidden>
+            <section class="insp-section">
+              <div class="insp-caption"><span>光标样式</span></div>
+              <div class="tile">
+                <div class="quad" role="group" aria-label="光标样式">
+                  <button class="quad-tile is-on" data-cursor="arrow"><svg class="ic"><use href="#i-cursor"/></svg><span>箭头</span></button>
+                  <button class="quad-tile" data-cursor="dot"><svg class="ic"><use href="#i-dot"/></svg><span>圆点</span></button>
+                  <button class="quad-tile" data-cursor="cross"><svg class="ic"><use href="#i-target"/></svg><span>十字</span></button>
+                  <button class="quad-tile" data-cursor="hand"><svg class="ic"><use href="#i-hand"/></svg><span>手型</span></button>
+                </div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="insp-caption"><span>反馈</span></div>
+              <div class="tile">
+                <div class="switch-row"><div><div class="row-title">点击涟漪</div><div class="row-sub">按下时扩散一圈细光</div></div><button class="switch is-on" id="rippleSwitch" role="switch" aria-checked="true" aria-label="点击涟漪"><i></i></button></div>
+                <div class="switch-row"><div><div class="row-title">静止隐藏</div><div class="row-sub">2 秒不动后淡出光标</div></div><button class="switch" id="idleSwitch" role="switch" aria-checked="false" aria-label="静止隐藏"><i></i></button></div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="insp-caption"><span>大小</span></div>
+              <div class="tile">
+                <div class="slider-row">
+                  <label for="cursorSize">光标大小</label>
+                  <output id="cursorSizeOut">100%</output>
+                  <input id="cursorSize" type="range" min="60" max="160" step="5" value="100" style="--p:40%">
+                </div>
+              </div>
+            </section>
+            <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>光标不会影响录制的原始指针，只在成片里重新绘制。</span></div>
+          </section>
+
+          <section class="panel" id="panel-camera" data-panel="camera" role="tabpanel" aria-labelledby="tab-camera" hidden>
+            <section class="insp-section">
+              <div class="insp-caption"><span>布局</span></div>
+              <div class="tile">
+                <div class="tri" role="group" aria-label="摄像头布局">
+                  <button class="tri-tile is-on" data-cam="pip"><svg class="ic"><use href="#i-layout"/></svg><span>画中画</span></button>
+                  <button class="tri-tile" data-cam="side"><svg class="ic"><use href="#i-camera"/></svg><span>并排</span></button>
+                  <button class="tri-tile" data-cam="off"><svg class="ic"><use href="#i-eye"/></svg><span>隐藏</span></button>
+                </div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="insp-caption"><span>构图</span></div>
+              <div class="tile">
+                <div class="slider-row">
+                  <label for="camSize">画面大小</label>
+                  <output id="camSizeOut">22%</output>
+                  <input id="camSize" type="range" min="12" max="36" step="1" value="22" style="--p:41%">
+                </div>
+                <div class="slider-row">
+                  <label for="camRadius">圆角</label>
+                  <output id="camRadiusOut">14 px</output>
+                  <input id="camRadius" type="range" min="0" max="28" step="1" value="14" style="--p:50%">
+                </div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="tile">
+                <div class="switch-row"><div><div class="row-title">水平镜像</div><div class="row-sub">像照镜子一样显示</div></div><button class="switch" id="mirrorSwitch" role="switch" aria-checked="false" aria-label="水平镜像"><i></i></button></div>
+              </div>
+            </section>
+            <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>这个项目没有摄像头素材，布局会应用到下次导入的画面。</span></div>
+          </section>
+
+          <section class="panel" id="panel-audio" data-panel="audio" role="tabpanel" aria-labelledby="tab-audio" hidden>
+            <section class="insp-section">
+              <div class="insp-caption"><span>轨道</span></div>
+              <div class="tile">
+                <div class="audio-row">
+                  <div class="audio-head"><span class="audio-dot sys"></span><div><div class="row-title">系统声音</div><div class="row-sub">Tide.studio · 立体声</div></div><button class="switch is-on" id="sysSwitch" role="switch" aria-checked="true" aria-label="系统声音"><i></i></button></div>
+                  <div class="meter"><i style="--l:.74"></i><i style="--l:.48"></i><i style="--l:.62"></i><i style="--l:.35"></i><i style="--l:.58"></i><i style="--l:.42"></i><i style="--l:.70"></i><i style="--l:.30"></i><i style="--l:.52"></i><i style="--l:.66"></i><i style="--l:.38"></i><i style="--l:.56"></i><i style="--l:.44"></i><i style="--l:.61"></i><i style="--l:.33"></i><i style="--l:.49"></i></div>
+                </div>
+                <div class="audio-row">
+                  <div class="audio-head"><span class="audio-dot mic"></span><div><div class="row-title">麦克风</div><div class="row-sub">MacBook Pro 麦克风</div></div><button class="switch is-on" id="micSwitch" role="switch" aria-checked="true" aria-label="麦克风"><i></i></button></div>
+                  <div class="meter quiet"><i style="--l:.32"></i><i style="--l:.20"></i><i style="--l:.38"></i><i style="--l:.26"></i><i style="--l:.44"></i><i style="--l:.18"></i><i style="--l:.30"></i><i style="--l:.24"></i><i style="--l:.36"></i><i style="--l:.22"></i><i style="--l:.40"></i><i style="--l:.28"></i><i style="--l:.34"></i><i style="--l:.21"></i><i style="--l:.31"></i><i style="--l:.25"></i></div>
+                </div>
+              </div>
+            </section>
+            <section class="insp-section">
+              <div class="insp-caption"><span>输出</span></div>
+              <div class="tile">
+                <div class="slider-row">
+                  <label for="masterGain">主音量</label>
+                  <output id="masterGainOut">86%</output>
+                  <input id="masterGain" type="range" min="0" max="100" step="1" value="86" style="--p:86%">
+                </div>
+                <div class="switch-row"><div><div class="row-title">降噪</div><div class="row-sub">轻量抑制底噪与齿音</div></div><button class="switch is-on" id="denoiseSwitch" role="switch" aria-checked="true" aria-label="降噪"><i></i></button></div>
+              </div>
+            </section>
+            <div class="info-note"><svg class="ic"><use href="#i-info"/></svg><span>音量只改变成片。原始录音仍保存在项目里，随时可以还原。</span></div>
+          </section>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="timeline" aria-label="时间线">
+    <div class="timeline-top">
+      <div class="tl-group">
+        <button class="icon-btn sm" title="选择工具（V）" aria-label="选择工具"><svg class="ic"><use href="#i-cursor"/></svg></button>
+        <span class="tl-rule"></span>
+        <button class="icon-btn sm" title="在播放头处分割（S）" aria-label="分割"><svg class="ic"><use href="#i-scissors"/></svg></button>
+        <button class="icon-btn sm" title="删除所选片段" aria-label="删除片段"><svg class="ic"><use href="#i-trash"/></svg></button>
+        <span class="tl-rule"></span>
+        <button class="icon-btn sm" title="撤销（⌘Z）" aria-label="撤销"><svg class="ic"><use href="#i-undo"/></svg></button>
+        <button class="icon-btn sm" title="重做（⌘⇧Z）" aria-label="重做"><svg class="ic"><use href="#i-redo"/></svg></button>
+      </div>
+      <div class="tl-group center">
+        <div class="display-seg" role="group" aria-label="时间线显示">
+          <button class="display-btn is-on" data-display="film"><svg class="ic"><use href="#i-film"/></svg><span>画面</span></button>
+          <button class="display-btn" data-display="wave"><svg class="ic"><use href="#i-wave"/></svg><span>波形</span></button>
+        </div>
+      </div>
+      <div class="tl-group">
+        <button class="icon-btn sm" title="添加标记（⌃⌥M）" aria-label="添加标记"><svg class="ic"><use href="#i-marker"/></svg></button>
+        <button class="icon-btn sm" title="轨道显示" aria-label="轨道显示"><svg class="ic"><use href="#i-eye"/></svg></button>
+        <span class="tl-rule"></span>
+        <span class="zoom-hint" title="时间线缩放"><svg class="ic"><use href="#i-zoom"/></svg></span>
+        <input class="tl-zoom" type="range" min="1" max="4" step="0.1" value="1.6" aria-label="时间线缩放" style="--p:20%">
+        <button class="icon-btn sm" title="放大" aria-label="放大时间线"><svg class="ic"><use href="#i-plus"/></svg></button>
+      </div>
+    </div>
+    <div class="timeline-body">
+      <div class="track-labels" aria-hidden="true">
+        <div class="label-head"><button class="label-mgr" tabindex="-1"><svg class="ic"><use href="#i-eye"/></svg></button></div>
+        <div class="label-row primary"><span class="lane-icon"><svg class="ic"><use href="#i-film"/></svg></span><span>屏幕录制</span></div>
+        <div class="label-row zoom-lane"><span class="lane-icon lime"><svg class="ic"><use href="#i-target"/></svg></span><span>缩放</span></div>
+        <div class="label-row cam-lane"><span class="lane-icon coral"><svg class="ic"><use href="#i-camera"/></svg></span><span>摄像运动</span></div>
+        <div class="label-row overlay-lane"><span class="lane-icon teal"><svg class="ic"><use href="#i-plus"/></svg></span><span>叠加</span></div>
+      </div>
+      <div class="timeline-scroll" id="timelineScroll">
+        <div class="timeline-content" id="timeline">
+          <div class="ruler" id="ruler" aria-hidden="true"></div>
+          <div class="clip primary-clip" id="primaryClip" tabindex="0" aria-label="屏幕录制片段，00:00 到 00:24">
+            <div class="filmstrip" id="filmstrip"></div>
+            <div class="waveform" id="waveform" aria-hidden="true"></div>
+            <span class="clip-tag">屏幕录制 · 24.0s</span>
+          </div>
+          <button class="clip effect zoom-clip" id="zoomClip" style="left:14%;width:20%;top:118px;height:22px" data-kind="zoom" aria-label="缩放片段 1.4 倍，00:03.40 到 00:08.20">
+            <span class="clip-label">缩放 1.4× · 自动</span><i class="handle l"></i><i class="handle r"></i>
+          </button>
+          <button class="clip effect cam-clip" style="left:39%;width:14%;top:152px;height:22px" data-kind="camera" aria-label="摄像运动片段">
+            <span class="clip-label">摄像运动 · 画中画</span><i class="handle l"></i><i class="handle r"></i>
+          </button>
+          <button class="clip effect overlay-clip" style="left:62%;width:13%;top:186px;height:22px" data-kind="overlay" aria-label="叠加片段">
+            <span class="clip-label">柔化 · 焦点</span><i class="handle l"></i><i class="handle r"></i>
+          </button>
+          <button class="clip effect zoom-clip" style="left:57%;width:15%;top:118px;height:22px" data-kind="zoom" aria-label="缩放片段 1.2 倍">
+            <span class="clip-label">缩放 1.2× · 自动</span><i class="handle l"></i><i class="handle r"></i>
+          </button>
+          <div class="playhead" id="playhead" style="left:25.5%"><span class="ph-handle"></span><span class="ph-line"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg class="ic"><use href="#i-check"/></svg><div><strong id="toastTitle">已应用</strong><span id="toastBody">更改已写入项目</span></div>
+</div>
+
+<dialog class="export-dialog" id="exportDialog" aria-labelledby="exportTitle">
+  <div class="dialog-head">
+    <div><h2 id="exportTitle">导出成片</h2><p>潮汐 · 产品演示 <span>·</span> 00:24.00</p></div>
+    <button class="icon-btn" id="closeExport" aria-label="关闭"><svg class="ic"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="dialog-body">
+    <div class="export-thumb"><div class="mini-canvas wallpaper-deep"><div class="mini-window"></div></div><span>1080p · H.264</span></div>
+    <div class="dialog-section"><span class="dialog-caption">分辨率</span><div class="segmented export-seg" id="resSeg" role="group" aria-label="分辨率">
+      <span class="seg-thumb" id="resThumb"></span>
+      <button class="seg" data-res="source" role="button" aria-pressed="false">原始</button>
+      <button class="seg is-on" data-res="1080" role="button" aria-pressed="true">1080p</button>
+      <button class="seg" data-res="1440" role="button" aria-pressed="false">1440p</button>
+      <button class="seg" data-res="2160" role="button" aria-pressed="false">4K</button>
+    </div></div>
+    <div class="dialog-grid">
+      <div class="dialog-section"><span class="dialog-caption">帧率</span><div class="segmented export-seg" id="fpsSeg" role="group" aria-label="帧率"><button class="seg is-on" data-fps="30" aria-pressed="true">30</button><button class="seg" data-fps="60" aria-pressed="false">60</button></div></div>
+      <div class="dialog-section"><span class="dialog-caption">格式</span><div class="segmented export-seg" id="fmtSeg" role="group" aria-label="格式"><button class="seg is-on" data-fmt="mp4" aria-pressed="true">MP4</button><button class="seg" data-fmt="m4a" aria-pressed="false">M4A</button></div></div>
+    </div>
+    <div class="export-summary"><div><span>估算大小</span><b id="exportSize">48 MB</b></div><div><span>编码</span><b>H.264 · 硬件加速</b></div></div>
+    <div class="export-progress" id="exportProgress" hidden><div class="progress-line"><i></i></div><div class="progress-label"><span id="progressText">正在编码…</span><b id="progressPct">0%</b></div></div>
+  </div>
+  <div class="dialog-foot">
+    <button class="quiet-btn lg" id="cancelExport">取消</button>
+    <button class="primary-btn lg" id="startExport"><svg class="ic"><use href="#i-share"/></svg><span>开始导出</span></button>
+  </div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

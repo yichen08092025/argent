@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-density="comfortable" data-brand="graphite">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relay Import — Argent 示例</title>
+<link rel="stylesheet" href="../../assets/argent.css">
+<link rel="stylesheet" href="../pages.css">
+</head>
+<body class="app-page onboard-body">
+<header class="onboard-top">
+  <a class="page-brand" href="../lab/index.html" aria-label="返回 Argent 手册"><span class="ag-mark"><span data-icon="mark"></span></span><span><b>RELAY</b><em>Northwind / Import</em></span></a>
+  <div class="ag-cluster"><a class="ag-btn ag-btn-quiet ag-btn-sm" href="../lab/index.html">保存并退出</a><button class="ag-btn ag-btn-icon ag-btn-quiet" data-theme-toggle aria-label="切换外观"><span class="theme-sun" data-icon="sun"></span><span class="theme-moon" data-icon="moon"></span></button><span class="ag-avatar">A</span></div>
+</header>
+
+<main class="onboard-main">
+  <aside class="onboard-aside">
+    <div class="page-crumb" style="margin:0"><span class="ag-dot is-live"></span><span>IMPORT / STEP BY STEP</span></div>
+    <h1 class="ag-display">把数据<br><em>接进来。</em></h1>
+    <p>四步完成一次导入。每一步只问一件事；随时可以回去改，进度会保留。</p>
+    <div class="onboard-steps">
+      <div class="onboard-step is-active" data-step-item="1"><span class="num">01</span><div><b>连接来源</b><span>选择数据库或文件</span></div></div>
+      <div class="onboard-step" data-step-item="2"><span class="num">02</span><div><b>映射字段</b><span>7 个字段</span></div></div>
+      <div class="onboard-step" data-step-item="3"><span class="num">03</span><div><b>检查</b><span>预览与确认</span></div></div>
+      <div class="onboard-step" data-step-item="4"><span class="num">04</span><div><b>完成</b><span>写入工作区</span></div></div>
+    </div>
+  </aside>
+
+  <div class="onboard-card-wrap">
+    <div class="onboard-card">
+      <div class="onboard-card-head"><span class="ag-kicker" data-step-kicker>STEP 01 / SOURCE</span><h2 data-step-title>先选择来源。</h2><p data-step-desc>可以连接生产数据库，也可以上传一个 CSV。导入只会读取，不会修改源数据。</p></div>
+      <div class="onboard-card-body">
+        <div class="onboard-step-panel" data-step-panel="1">
+          <div class="onboard-options"><button class="onboard-option is-on"><span data-icon="database"></span>PostgreSQL</button><button class="onboard-option"><span data-icon="database"></span>MySQL</button><button class="onboard-option"><span data-icon="file"></span>CSV 文件</button><button class="onboard-option"><span data-icon="cloud"></span>Snowflake</button></div>
+          <div class="ag-form-grid"><div class="ag-field"><label class="ag-label">主机</label><input class="ag-input" value="db.northwind.io"></div><div class="ag-field"><label class="ag-label">端口</label><input class="ag-input" value="5432"></div><div class="ag-field"><label class="ag-label">数据库</label><input class="ag-input" value="events_production"></div><div class="ag-field"><label class="ag-label">用户</label><input class="ag-input" value="argent_reader"></div><div class="ag-field is-full"><label class="ag-label">密码</label><div class="ag-input-wrap"><input class="ag-input" type="password" value="northwind-demo"><span class="ag-input-addon"><button class="ag-btn ag-btn-icon ag-btn-quiet" data-password-toggle aria-label="显示密码"><span data-icon="eye"></span></button></span></div></div></div>
+          <div class="ag-banner is-success" data-connection-result hidden><span data-icon="check-circle"></span><div class="ag-banner-body"><strong>连接成功</strong>12 张表可读，当前账号没有写入权限。</div></div>
+          <div class="ag-cluster"><button class="ag-btn ag-btn-secondary ag-btn-sm" data-test-connection>测试连接</button><span class="ag-help">只读取结构，不下载数据。</span></div>
+        </div>
+        <div class="onboard-step-panel" data-step-panel="2" hidden>
+          <div class="ag-banner is-warning"><span data-icon="alert-triangle"></span><div class="ag-banner-body"><strong>2 个字段需要手动选择类型</strong>其余字段已自动匹配，可以继续。</div></div>
+          <div class="ag-form-grid"><div class="ag-field"><label class="ag-label">event_id</label><input class="ag-input" value="string" readonly><span class="ag-help is-success">已匹配。</span></div><div class="ag-field"><label class="ag-label">occurred_at</label><input class="ag-input" value="timestamp" readonly><span class="ag-help is-success">已匹配。</span></div><div class="ag-field"><label class="ag-label">properties.plan</label><select class="ag-input ag-select"><option>选择类型…</option><option>string</option><option>number</option></select></div><div class="ag-field"><label class="ag-label">properties.amount</label><select class="ag-input ag-select"><option>number</option><option>string</option></select></div><div class="ag-field"><label class="ag-label">actor_id</label><input class="ag-input" value="string" readonly><span class="ag-help is-success">已匹配。</span></div><div class="ag-field"><label class="ag-label">source</label><input class="ag-input" value="string" readonly><span class="ag-help is-success">已匹配。</span></div></div>
+        </div>
+        <div class="onboard-step-panel" data-step-panel="3" hidden>
+          <div class="ag-banner is-info"><span data-icon="info"></span><div class="ag-banner-body"><strong>这是一次只读导入</strong>我们会复制 3.4M 行到 Argent，源数据库保持不变。</div></div>
+          <div class="ag-kv" style="padding:4px 0"><dt>来源</dt><dd>events_production</dd><dt>行数</dt><dd>3,421,908</dd><dt>字段</dt><dd>7 个（2 个手动映射）</dd><dt>预计用时</dt><dd>约 4 分钟</dd></div>
+          <label class="ag-check"><input type="checkbox" checked><span>我知道这次导入会占用 3.4M 行配额，并同意开始。</span></label>
+        </div>
+        <div class="onboard-step-panel" data-step-panel="4" hidden>
+          <div class="onboard-success"><span class="ag-empty-icon"><span data-icon="check"></span></span><h3>导入完成。</h3><p>3,421,908 行已写入 Northwind。现在可以在 Pulse 里查看新的信号。</p><div class="ag-cluster"><a class="ag-btn ag-btn-primary ag-btn-sm" href="../pulse/index.html">打开 Pulse <span data-icon="arrow-right"></span></a><button class="ag-btn ag-btn-secondary ag-btn-sm" data-restart>再导入一个</button></div></div>
+        </div>
+      </div>
+      <div class="onboard-card-foot" data-step-footer><button class="ag-btn ag-btn-quiet" data-step-back>返回</button><span class="ag-help" data-step-of>第 1 步，共 4 步</span><span class="ag-spacer"></span><button class="ag-btn ag-btn-primary" data-step-next>继续 <span data-icon="arrow-right"></span></button></div>
+    </div>
+  </div>
+</main>
+
+<script src="../../assets/argent.js"></script>
+<script src="onboarding.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-density="comfortable" data-brand="graphite">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Settings — Argent 示例</title>
+<link rel="stylesheet" href="../../assets/argent.css">
+<link rel="stylesheet" href="../pages.css">
+</head>
+<body class="app-page">
+<div class="ag-app">
+  <header class="ag-topbar">
+    <a class="page-brand" href="../lab/index.html" aria-label="返回 Argent 手册"><span class="ag-mark"><span data-icon="mark"></span></span><span><b>ATELIER</b><em>Northwind / Workspace</em></span></a>
+    <nav class="page-topnav" aria-label="主导航"><a href="../pulse/index.html">概览</a><a href="#">项目</a><a href="#">成员</a><a href="#" class="is-active">设置</a></nav>
+    <span class="ag-spacer"></span>
+    <div class="page-search"><span data-icon="search"></span><input placeholder="搜索设置…" aria-label="搜索设置"><span class="ag-kbd">⌘K</span></div>
+    <button class="ag-btn ag-btn-icon ag-btn-quiet" data-theme-toggle aria-label="切换外观"><span class="theme-sun" data-icon="sun"></span><span class="theme-moon" data-icon="moon"></span></button>
+    <span class="ag-avatar">A</span>
+  </header>
+
+  <div class="ag-shell">
+    <aside class="ag-rail">
+      <div class="ag-rail-group"><div class="ag-rail-label">Account</div><a class="ag-nav-item" href="#"><span data-icon="user"></span>个人资料</a><a class="ag-nav-item" href="#"><span data-icon="bell"></span>通知偏好</a></div>
+      <div class="ag-rail-group"><div class="ag-rail-label">Workspace</div><a class="ag-nav-item is-active" href="#"><span data-icon="settings"></span>通用</a><a class="ag-nav-item" href="#"><span data-icon="users"></span>成员<span class="ag-nav-count">24</span></a><a class="ag-nav-item" href="#"><span data-icon="credit-card"></span>账单</a><a class="ag-nav-item" href="#"><span data-icon="share"></span>集成</a></div>
+      <div class="ag-rail-group"><div class="ag-rail-label">Security</div><a class="ag-nav-item" href="#"><span data-icon="lock"></span>登录与安全</a><a class="ag-nav-item" href="#"><span data-icon="eye"></span>权限</a><a class="ag-nav-item" href="#"><span data-icon="alert-triangle"></span>危险区</a></div>
+      <div class="ag-rail-footer"><a class="page-back" href="../lab/index.html">ARGENT / FIELD MANUAL ↗</a></div>
+    </aside>
+
+    <main class="ag-main">
+      <div class="settings-page">
+        <header class="page-head">
+          <div class="page-head-copy">
+            <div class="page-crumb"><span>Northwind</span><span data-icon="chevron-right"></span><span>设置</span><span data-icon="chevron-right"></span><span>通用</span></div>
+            <h1 class="page-title">工作区设置</h1>
+            <p class="page-sub">管理资料、成员与通知。最后保存于 2 分钟前。</p>
+          </div>
+          <div class="page-actions"><button class="ag-btn ag-btn-secondary"><span data-icon="help"></span>查看文档</button></div>
+        </header>
+
+        <div class="settings-content">
+          <section class="settings-section">
+            <div class="settings-head"><div><h3>工作区资料</h3><p>这些信息会出现在邀请、导出和公开页面里。</p></div><span class="ag-badge is-success">已验证</span></div>
+            <div class="settings-body">
+              <div class="settings-logo-row"><span class="ag-avatar lg">N</span><div><b>工作区标志</b><p>PNG 或 SVG，建议 256 × 256。</p></div><button class="ag-btn ag-btn-secondary ag-btn-sm">更换标志</button></div>
+              <div class="ag-form-grid">
+                <div class="ag-field"><label class="ag-label">工作区名称</label><input class="ag-input" value="Northwind Labs" data-dirty><span class="ag-help">显示在侧边栏和邀请中。</span></div>
+                <div class="ag-field"><label class="ag-label">工作区地址</label><div class="ag-input-wrap"><input class="ag-input" value="northwind" data-dirty><span class="ag-input-addon"><span class="ag-help">.argent.app</span></span></div></div>
+                <div class="ag-field is-full"><label class="ag-label">简介</label><textarea class="ag-input ag-textarea" data-dirty>A quiet place for loud ideas. We make tools for people who look closely.</textarea></div>
+                <div class="ag-field"><label class="ag-label">时区</label><select class="ag-input ag-select" data-dirty><option>Asia/Shanghai (GMT+8)</option><option>America/Los_Angeles (GMT-7)</option></select></div>
+                <div class="ag-field"><label class="ag-label">默认语言</label><select class="ag-input ag-select" data-dirty><option>简体中文</option><option>English</option></select></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="settings-section">
+            <div class="settings-head"><div><h3>成员</h3><p>24 位成员，3 个待接受邀请。角色决定可见的数据范围。</p></div><button class="ag-btn ag-btn-primary ag-btn-sm" data-toast="invite"><span data-icon="plus"></span>邀请成员</button></div>
+            <div class="ag-table-wrap">
+              <table class="ag-table">
+                <thead><tr><th>成员</th><th>邮箱</th><th>角色</th><th>状态</th><th class="ag-table-actions"></th></tr></thead>
+                <tbody>
+                  <tr><td><span class="ag-row"><span class="ag-avatar sm">A</span><span class="ag-table-strong">Ada Lovelace</span></span></td><td class="ag-mono">ada@northwind.io</td><td><select class="ag-input ag-select" style="height:28px;font-size:11px"><option>Owner</option><option>Admin</option><option>Member</option></select></td><td><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Active</span></td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                  <tr><td><span class="ag-row"><span class="ag-avatar sm">G</span><span class="ag-table-strong">Grace Hopper</span></span></td><td class="ag-mono">grace@northwind.io</td><td><select class="ag-input ag-select" style="height:28px;font-size:11px"><option>Admin</option><option>Member</option></select></td><td><span class="ag-badge is-success"><span class="ag-dot is-success"></span>Active</span></td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                  <tr><td><span class="ag-row"><span class="ag-avatar sm">K</span><span class="ag-table-strong">Ken Thompson</span></span></td><td class="ag-mono">ken@northwind.io</td><td><select class="ag-input ag-select" style="height:28px;font-size:11px"><option>Member</option><option>Admin</option></select></td><td><span class="ag-badge"><span class="ag-dot"></span>Invited</span></td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                  <tr><td><span class="ag-row"><span class="ag-avatar sm">L</span><span class="ag-table-strong">Lin Chen</span></span></td><td class="ag-mono">lin@northwind.io</td><td><select class="ag-input ag-select" style="height:28px;font-size:11px"><option>Member</option></select></td><td><span class="ag-badge is-warning"><span class="ag-dot is-warning"></span>Over seat</span></td><td class="ag-table-actions"><button class="ag-btn ag-btn-icon ag-btn-quiet" aria-label="更多"><span data-icon="more"></span></button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="settings-section">
+            <div class="settings-head"><div><h3>通知</h3><p>只在你需要的时候出现。</p></div></div>
+            <div class="settings-body">
+              <div class="settings-row"><div><b>每周摘要</b><span>每周一上午发送关键指标的变化。</span></div><label class="ag-switch"><input type="checkbox" checked aria-label="每周摘要"></label></div>
+              <div class="settings-row"><div><b>异常告警</b><span>当查询失败或延迟超过 2 秒时通知管理员。</span></div><label class="ag-switch"><input type="checkbox" checked aria-label="异常告警"></label></div>
+              <div class="settings-row"><div><b>产品更新</b><span>每月一封，关于新发布的组件与功能。</span></div><label class="ag-switch"><input type="checkbox" aria-label="产品更新"></label></div>
+            </div>
+          </section>
+
+          <section class="settings-section danger-zone-card">
+            <div class="settings-head"><div><h3>危险区</h3><p>不可逆的操作。请确认你已经导出需要保留的数据。</p></div></div>
+            <div class="settings-body">
+              <div class="settings-row" style="border-bottom:0"><div><b>删除工作区</b><span>移除 24 个项目、3,000 个事件与全部保存视图。</span></div><button class="ag-btn ag-btn-danger-quiet" data-dialog="delete-workspace">删除工作区</button></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="settings-savebar" data-savebar>
+          <span class="ag-save is-saved"><span data-icon="check"></span><span data-save-label>所有更改已保存</span></span>
+          <span class="ag-spacer"></span>
+          <button class="ag-btn ag-btn-quiet ag-btn-sm" data-save-discard>放弃</button>
+          <button class="ag-btn ag-btn-primary ag-btn-sm" data-save-save>保存更改</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<dialog class="ag-dialog" id="delete-workspace" aria-labelledby="delete-title">
+  <div class="ag-dialog-head"><div><h2 class="ag-dialog-title" id="delete-title">删除 Northwind Labs？</h2><p class="ag-dialog-desc">这会移除 24 个项目、3,000 个事件和全部保存视图。该操作不可撤销。</p></div><button class="ag-btn ag-btn-icon ag-btn-quiet" data-dialog-close aria-label="关闭"><span data-icon="x"></span></button></div>
+  <div class="ag-dialog-body"><div class="ag-banner is-danger"><span data-icon="alert-triangle"></span><div class="ag-banner-body"><strong>永久操作</strong>删除后无法恢复。建议先导出工作区。</div></div><div class="ag-field"><label class="ag-label">输入 <span class="ag-inline-code">delete</span> 确认</label><input class="ag-input" placeholder="delete"></div></div>
+  <div class="ag-dialog-foot"><button class="ag-btn ag-btn-quiet" data-dialog-close>保留工作区</button><button class="ag-btn ag-btn-danger" data-dialog-close>永久删除</button></div>
+</dialog>
+
+<script src="../../assets/argent.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
